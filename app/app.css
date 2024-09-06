@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --swiper-navigation-color: black !important;
+    --swiper-navigation-size: 24px !important;
+    --swiper-navigation-sides-offset: 0px;
+}
+
+@layer utilities {
+    .fadeIn {
+        opacity: 0;
+        animation: fadeInAnimation ease-in-out 500ms forwards;
+    }
+    .reflect {
+        transform: scaleX(-1);
+    }
+    .inner-curve {
+        --r: 135px;  /* control the rounded part */
+        --s: 255px;  /* control the size of the cut */
+        --a: 56deg; /* control the depth of the curvature */
+
+        --_m:100%/calc(2*var(--r)) var(--r) no-repeat
+        radial-gradient(50% 100% at top,#000 calc(100% - 1px),#0000);
+        --_d:(var(--s) + var(--r))*cos(var(--a));
+        mask:
+                calc(50% + var(--_d)) var(--_m),calc(50% - var(--_d)) var(--_m),
+                radial-gradient(var(--s) at 50% calc(100% + sin(var(--a))*var(--s)),
+                #0000 100%,#000 calc(100% + 1px)) 0 calc(var(--r)*(sin(var(--a)) - 1)) no-repeat,
+                linear-gradient(90deg,#000 calc(50% - var(--_d)),#0000 0 calc(50% + var(--_d)),#000 0);
+    }
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#nprogress {
+    pointer-events: none;
+}
+#nprogress .bar {
+    background: #F1CF69;
+    position: fixed;
+    z-index: 1031;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+}
+#nprogress .peg {
+    display: block;
+    position: absolute;
+    right: 0px;
+    width: 100px;
+    height: 100%;
+    box-shadow: 0 0 10px #F1CF69, 0 0 5px #F1CF69;
+    opacity: 1.0;
+    -webkit-transform: rotate(3deg) translate(0px, -4px);
+    -ms-transform: rotate(3deg) translate(0px, -4px);
+    transform: rotate(3deg) translate(0px, -4px);
+}

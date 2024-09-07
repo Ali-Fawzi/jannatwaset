@@ -34,10 +34,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 
   React.useEffect(() => {
-      // and when it's something else it means it's either submitting a form or
-      // waiting for the loaders of the next location so we start it
       if (state === 'loading') NProgress.start();
-      // when the state is idle then we can to complete the progress bar
       if (state === 'idle') NProgress.done();
   }, [state]);
 

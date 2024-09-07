@@ -100,7 +100,7 @@ function MenuDrawer({
 }) {
     return (
         <Drawer open={isOpen} onClose={onClose} openFrom="right">
-            <nav className='flex flex-col items-start justify-center gap-4 px-4'>
+            <nav className='flex flex-col items-start justify-center gap-4 px-6 md:px-8'>
                 {menu.map((menuItem) =>
                     <NavLink
                         key={menuItem.title}

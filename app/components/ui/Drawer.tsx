@@ -42,7 +42,7 @@ export function Drawer({
                     >
                         <DialogPanel
                             transition
-                            className={`w-screen max-w-xs overflow-y-auto lg:overflow-hidden text-left align-middle shadow-xl h-screen-dynamic bg-background pointer-events-auto ease-in-out transform transition duration-500 ${
+                            className={`w-screen max-w-xs overflow-y-auto lg:overflow-hidden text-left align-middle shadow-xl h-screen-dynamic bg-white pointer-events-auto ease-in-out transform transition duration-500 ${
                                 openFrom === 'right'
                                     ? 'data-[closed]:translate-x-full'
                                     : 'data-[closed]:-translate-x-full'
@@ -50,7 +50,7 @@ export function Drawer({
                         >
                             <header
                                 className={`top-0 flex my-8 items-center px-6 md:px-8 ${
-                                    heading ? 'justify-between' : 'justify-start'
+                                    heading ? 'justify-between' : 'justify-end'
                                 }`}
                             >
                                 <div className="flex">

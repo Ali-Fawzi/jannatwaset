@@ -1,13 +1,14 @@
 import background from '../../asstes/images/background.png'
 import {Button} from "~/components/ui/Button";
+import MapLocation from "~/components/MapLocation";
 
 export default function Newsletter() {
     return (
         <div className='flex flex-col xl:flex-row'>
-            <div className='relative w-full text-white h-72'>
+            <div className='relative w-full text-white h-96'>
                 <img src={background} alt='' className='w-full h-full absolute object-cover'/>
                 <div aria-hidden="true" className="absolute inset-0 bg-orange-400/80"/>
-                <div className='mx-auto max-w-md mt-12 relative flex flex-col items-start justify-center gap-2 px-4'>
+                <div className='mx-auto max-w-md mt-20 relative flex flex-col items-start justify-center gap-2 px-4'>
                     <span>لتواصل معنا</span>
                     <span className='text-3xl'>ترقبو اخر التحديثات</span>
                     <form className='flex flex-row items-center justify-center mt-8 w-full gap-4'>
@@ -30,7 +31,7 @@ export default function Newsletter() {
                 </div>
             </div>
             <div className='w-full'>
-                <img src={background} className='w-full h-full object-cover' alt=''/>
+                <MapLocation />
             </div>
         </div>
     )

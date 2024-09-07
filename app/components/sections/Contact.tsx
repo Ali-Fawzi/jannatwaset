@@ -51,7 +51,7 @@ export default function Contact() {
                 </div>
             </form>
             <div className='mt-16 w-full max-w-6xl mx-auto flex flex-col xl:flex-row gap-8 items-center justify-center'>
-                <div className='border border-green py-12 flex flex-col items-center justify-center gap-2 w-full max-w-xs'>
+                <div className='border border-green rounded-lg py-12 flex flex-col items-center justify-center gap-2 w-full max-w-xs'>
                     <div className='p-4 rounded-full bg-background'>
                         <Telephone />
                     </div>
@@ -59,7 +59,7 @@ export default function Contact() {
                     <span>07800800758</span>
                     <span>07800800758</span>
                 </div>
-                <div className='border border-green py-12 flex flex-col items-center justify-center gap-2 w-full max-w-xs'>
+                <div className='border border-green rounded-lg py-12 flex flex-col items-center justify-center gap-2 w-full max-w-xs'>
                     <div className='p-4 rounded-full bg-background'>
                         <Email />
                     </div>
@@ -67,7 +67,7 @@ export default function Contact() {
                     <span>needhelp@organik.com</span>
                     <span>info@company.com</span>
                 </div>
-                <div className='border border-green py-12 flex flex-col items-center justify-center gap-2 w-full max-w-xs'>
+                <div className='border border-green rounded-lg py-12 flex flex-col items-center justify-center gap-2 w-full max-w-xs'>
                     <div className='p-4 rounded-full bg-background'>
                         <Location />
                     </div>

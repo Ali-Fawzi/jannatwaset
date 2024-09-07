@@ -1,6 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import SecondaryHero from "~/components/ui/SecondaryHero";
 import Contact from "~/components/sections/Contact";
+import MapLocation from "~/components/MapLocation";
 
 export const meta: MetaFunction = () => {
     return [
@@ -17,6 +18,9 @@ export default function ContactUs() {
             </section>
             <section className='my-16'>
                 <Contact />
+            </section>
+            <section className='mt-16'>
+                <MapLocation />
             </section>
         </div>
     );

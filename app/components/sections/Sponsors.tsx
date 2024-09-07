@@ -1,6 +1,6 @@
 import {Link} from "@remix-run/react";
 import {Swiper, SwiperSlide} from "swiper/react";
-import {A11y, Navigation} from "swiper/modules";
+import {A11y, Autoplay, Navigation} from "swiper/modules";
 import img from "../../asstes/images/sponser.png"
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -15,8 +15,13 @@ export default function Sponsors() {
             <span className='text-3xl'>نحن نفتخر بشركائنا المميزين</span>
             <div className='max-w-6xl w-full mx-auto'>
                 <Swiper
+                    autoplay={{
+                        delay: 5000,
+                        disableOnInteraction: true,
+                        stopOnLastSlide: false,
+                    }}
                     dir={'rtl'}
-                    modules={[Navigation, A11y]}
+                    modules={[Navigation, A11y, Autoplay]}
                     breakpoints={{
                         320: {slidesPerView: 1},
                         480: {slidesPerView: 2.4},
@@ -39,6 +44,69 @@ export default function Sponsors() {
                             <div className="h-32 w-32 bg-gray-200 rounded-full mx-auto m-2 hidden 2xl:block" />
                         </Skeleton> :
                         <>
+                            <SwiperSlide>
+                                <Link to={'#'}>
+                                    <img
+                                        className="object-cover h-36 w-36 mx-auto"
+                                        src={img}
+                                        alt=''
+                                    />
+                                </Link>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <Link to={'#'}>
+                                    <img
+                                        className="object-cover h-36 w-36 mx-auto"
+                                        src={img}
+                                        alt=''
+                                    />
+                                </Link>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <Link to={'#'}>
+                                    <img
+                                        className="object-cover h-36 w-36 mx-auto"
+                                        src={img}
+                                        alt=''
+                                    />
+                                </Link>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <Link to={'#'}>
+                                    <img
+                                        className="object-cover h-36 w-36 mx-auto"
+                                        src={img}
+                                        alt=''
+                                    />
+                                </Link>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <Link to={'#'}>
+                                    <img
+                                        className="object-cover h-36 w-36 mx-auto"
+                                        src={img}
+                                        alt=''
+                                    />
+                                </Link>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <Link to={'#'}>
+                                    <img
+                                        className="object-cover h-36 w-36 mx-auto"
+                                        src={img}
+                                        alt=''
+                                    />
+                                </Link>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <Link to={'#'}>
+                                    <img
+                                        className="object-cover h-36 w-36 mx-auto"
+                                        src={img}
+                                        alt=''
+                                    />
+                                </Link>
+                            </SwiperSlide>
                             <SwiperSlide>
                                 <Link to={'#'}>
                                     <img

@@ -3,9 +3,9 @@ import Hero from "~/components/sections/Hero";
 import Greeting from "~/components/sections/Greeting";
 import OurServices from "~/components/sections/OurServices";
 import LatestProjects from "~/components/sections/LatestProjects";
-import Articles from "~/components/sections/Articles";
+import LatestArticles from "~/components/sections/LatestArticles";
 import Sponsors from "~/components/sections/Sponsors";
-import Contact from "~/components/sections/Contact";
+import Newsletter from "~/components/sections/Newsletter";
 import Statistics from "~/components/sections/Statistics";
 
 export const meta: MetaFunction = () => {
@@ -34,13 +34,13 @@ export default function Index() {
             <Statistics />
         </section>
         <section className='mt-16 bg-background'>
-            <Articles />
+            <LatestArticles />
         </section>
         <section className='mt-16'>
             <Sponsors />
         </section>
         <section className='mt-16'>
-            <Contact />
+            <Newsletter />
         </section>
     </div>
   );

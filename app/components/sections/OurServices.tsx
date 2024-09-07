@@ -18,7 +18,7 @@ export default function OurServices() {
             </div>
             <Link to={'#'} className='mt-8'>
                 <Button variant='secondary'>
-                    عرض كل المشاريع
+                    عرض كل الخدمات
                 </Button>
             </Link>
         </div>

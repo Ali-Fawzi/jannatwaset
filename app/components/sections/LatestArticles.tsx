@@ -2,7 +2,7 @@ import ArticleCard from "~/components/ui/ArticleCard";
 import {Link} from "@remix-run/react";
 import {Button} from "~/components/ui/Button";
 
-export default function Articles() {
+export default function LatestArticles() {
     return (
         <div className='flex flex-col items-center justify-center px-4 py-8 gap-4'>
             <span className='text-2xl'>المقالات</span>

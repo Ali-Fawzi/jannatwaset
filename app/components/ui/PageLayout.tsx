@@ -186,9 +186,14 @@ function Footer() {
                             <label htmlFor="newsletter"
                                    className="mb-2 text-sm font-medium sr-only">ادخل البريد الالكتروني</label>
                             <div className="relative">
-                                <input type="email" id="newsletter"
-                                       className="block text-black w-full p-4 ps-10 text-sm rounded-full bg-white focus:ring-0 focus:outline-none"
-                                       placeholder="ادخل البريد الالكتروني" required/>
+                                <input
+                                    name='email'
+                                    type="email"
+                                    id="newsletter"
+                                    className="block text-black w-full p-4 ps-10 text-sm rounded-full bg-white focus:ring-0 focus:outline-none"
+                                    placeholder="ادخل البريد الالكتروني"
+                                    required
+                                />
                                 <button type="submit"
                                         className="absolute end-2.5 bottom-1.5 bg-green transition transform ease-in-out duration-500 hover:bg-green/90 rounded-full p-1">
                                     <LeftArrow />

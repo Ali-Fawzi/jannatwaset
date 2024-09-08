@@ -2,6 +2,7 @@ import type { MetaFunction } from "@remix-run/node";
 import SecondaryHero from "~/components/ui/SecondaryHero";
 import Contact from "~/components/sections/Contact";
 import MapLocation from "~/components/MapLocation";
+import * as motion from "framer-motion/client"
 
 export const meta: MetaFunction = () => {
     return [
@@ -19,9 +20,17 @@ export default function ContactUs() {
             <section className='my-16'>
                 <Contact />
             </section>
-            <section className='mt-16'>
+            <motion.section
+                initial={{
+                    opacity: 0,
+                }}
+                whileInView={{opacity: 1}}
+                viewport={{once: true}}
+                transition={{ease: "easeOut", duration: 1}}
+                className='mt-16'
+            >
                 <MapLocation />
-            </section>
+            </motion.section>
         </div>
     );
 }

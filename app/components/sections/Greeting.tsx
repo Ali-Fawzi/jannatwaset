@@ -2,10 +2,28 @@ import Wheat from '../../asstes/icons/wheat.svg'
 import WheatImg from '../../asstes/images/wheat.png'
 import {Button} from "~/components/ui/Button";
 import {Link} from "@remix-run/react";
+import * as motion from "framer-motion/client"
 
 export default function Greeting() {
     return (
-        <div className='relative pb-32'>
+        <motion.div
+            initial={{
+                scale: 0.25,
+                opacity: 0,
+                y: 144
+            }}
+            whileInView={{
+                scale: 1,
+                opacity: 1,
+                y: 0
+            }}
+            viewport={{ once: true }}
+            transition={{
+                duration: 1,
+                ease: 'easeOut',
+            }}
+            className='relative pb-32'
+        >
             <img
                 src={WheatImg}
                 className='absolute top-0 xl:hidden'
@@ -53,6 +71,6 @@ export default function Greeting() {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }

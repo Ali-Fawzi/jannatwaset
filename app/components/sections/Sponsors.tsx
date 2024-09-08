@@ -6,14 +6,34 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import {useState} from "react";
 import {Skeleton} from "~/components/Skeleton";
+import * as motion from "framer-motion/client"
+
 export default function Sponsors() {
     const [loading, setLoading] = useState(true);
     return (
-        <div className='flex flex-col items-center justify-center px-4 gap-4 my-8'>
-            <span className='text-2xl'>الشركاء</span>
-            <hr className='bg-green pb-[1px] w-8'/>
-            <span className='text-3xl'>نحن نفتخر بشركائنا المميزين</span>
-            <div className='max-w-6xl w-full mx-auto'>
+        <div className='flex flex-col items-center justify-center px-4 gap-16 my-8'>
+            <motion.div
+                initial={{
+                    opacity: 0,
+                }}
+                whileInView={{opacity: 1}}
+                viewport={{once: true}}
+                transition={{ease: "easeOut", duration: 1}}
+                className='flex flex-col items-center justify-center gap-4'
+            >
+                <span className='text-2xl'>الشركاء</span>
+                <hr className='bg-green pb-[1px] w-8'/>
+                <span className='text-3xl'>نحن نفتخر بشركائنا المميزين</span>
+            </motion.div>
+            <motion.div
+                initial={{
+                    opacity: 0,
+                }}
+                whileInView={{opacity: 1}}
+                viewport={{once: true}}
+                transition={{ease: "easeOut", duration: 1}}
+                className='max-w-6xl w-full mx-auto'
+            >
                 <Swiper
                     autoplay={{
                         delay: 5000,
@@ -119,7 +139,7 @@ export default function Sponsors() {
                         </>
                     }
                 </Swiper>
-            </div>
+            </motion.div>
         </div>
     );
 }

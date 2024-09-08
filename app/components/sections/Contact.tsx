@@ -3,9 +3,19 @@ import {Button} from "~/components/ui/Button";
 import Telephone from '../../asstes/icons/ContactTelephone.svg'
 import Email from '../../asstes/icons/ContactEmail.svg'
 import Location from '../../asstes/icons/ContactLocation.svg'
+import * as motion from "framer-motion/client"
+
 export default function Contact() {
     return (
-        <div className='flex flex-col items-center justify-center gap-2 px-4'>
+        <motion.div
+            initial={{
+                opacity: 0,
+            }}
+            whileInView={{opacity: 1}}
+            viewport={{once: true}}
+            transition={{ease: "easeOut", duration: 1}}
+            className='flex flex-col items-center justify-center gap-2 px-4'
+        >
             <ContactIcon />
             <span>ابق على تواصل معنا</span>
             <span className='text-3xl'>هل لديك اي سؤال؟</span>
@@ -76,6 +86,6 @@ export default function Contact() {
                     <span>شارع الحي</span>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }

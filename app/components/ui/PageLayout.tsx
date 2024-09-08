@@ -246,7 +246,7 @@ function Footer() {
                             </div>
                         </Link>
                     </nav>
-                    <div className='flex flex-col items-start justify-between max-w-sm mx-auto space-y-3'>
+                    <div className='flex flex-col items-center sm:items-start justify-between max-w-sm mx-auto space-y-3'>
                         <span className='text-white mb-4 text-base'>تواصل معنا</span>
                         <div className='flex flex-row items-start justify-center gap-2'>
                             <FooterTelephone />

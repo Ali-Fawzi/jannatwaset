@@ -1,10 +1,19 @@
 import background from '../../asstes/images/background.png'
 import {Button} from "~/components/ui/Button";
 import MapLocation from "~/components/MapLocation";
+import * as motion from "framer-motion/client"
 
 export default function Newsletter() {
     return (
-        <div className='flex flex-col xl:flex-row'>
+        <motion.div
+            initial={{
+                opacity: 0,
+            }}
+            whileInView={{opacity: 1}}
+            viewport={{once: true}}
+            transition={{ease: "easeOut", duration: 1}}
+            className='flex flex-col xl:flex-row'
+        >
             <div className='relative w-full text-white h-96'>
                 <img src={background} alt='' className='w-full h-full absolute object-cover'/>
                 <div aria-hidden="true" className="absolute inset-0 bg-orange-400/80"/>
@@ -33,6 +42,6 @@ export default function Newsletter() {
             <div className='w-full'>
                 <MapLocation />
             </div>
-        </div>
+        </motion.div>
     )
 }

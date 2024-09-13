@@ -30,7 +30,7 @@ export function Drawer({
         <Dialog open={open} as="div" className="relative z-50" onClose={onClose}>
             <DialogBackdrop
                 transition
-                className="fixed inset-0 bg-black/50 transition-opacity ease-in-out transform duration-500 data-[closed]:opacity-0"
+                className="fixed inset-0 bg-black/50 animate-smooth data-[closed]:opacity-0"
             />
 
             <div className="fixed inset-0">
@@ -42,7 +42,7 @@ export function Drawer({
                     >
                         <DialogPanel
                             transition
-                            className={`w-screen max-w-xs overflow-y-auto lg:overflow-hidden text-left align-middle shadow-xl h-screen-dynamic bg-white pointer-events-auto ease-in-out transform transition duration-500 ${
+                            className={`w-screen max-w-xs overflow-y-auto lg:overflow-hidden text-left align-middle shadow-xl h-screen-dynamic bg-white pointer-events-auto animate-smooth ${
                                 openFrom === 'right'
                                     ? 'data-[closed]:translate-x-full'
                                     : 'data-[closed]:-translate-x-full'

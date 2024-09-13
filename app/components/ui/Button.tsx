@@ -26,11 +26,11 @@ export const Button = forwardRef(
         const Component = props?.to ? Link : as;
 
         const variants = {
-            primaryYellow: `${baseButtonClasses} bg-yellow text-black hover:bg-darkYellow ease-in-out transform transition duration-500 select-none`,
-            primaryGreen: `${baseButtonClasses} bg-green text-white hover:bg-green2 ease-in-out transform transition duration-500 select-none`,
-            secondary: `${baseButtonClasses} bg-white text-darkGreen hover:bg-darkGreen hover:text-white ease-in-out transform transition duration-500 select-none border-2 border-darkGreen`,
-            secondaryWhite: `${baseButtonClasses} bg-white/0 text-white hover:bg-white hover:text-orange-400/80 ease-in-out transform transition duration-500 select-none border-2 border-white`,
-            secondaryGreen: `${baseButtonClasses} bg-white/0 text-green hover:bg-green hover:text-white ease-in-out transform transition duration-500 select-none border-2 border-green`,
+            primaryYellow: `${baseButtonClasses} bg-yellow text-black hover:bg-darkYellow animate-smooth select-none`,
+            primaryGreen: `${baseButtonClasses} bg-green text-white hover:bg-green2 animate-smooth select-none`,
+            secondary: `${baseButtonClasses} bg-white text-darkGreen hover:bg-darkGreen hover:text-white animate-smooth select-none border-2 border-darkGreen`,
+            secondaryWhite: `${baseButtonClasses} bg-white/0 text-white hover:bg-white hover:text-orange-400/80 animate-smooth select-none border-2 border-white`,
+            secondaryGreen: `${baseButtonClasses} bg-white/0 text-green hover:bg-green hover:text-white animate-smooth select-none border-2 border-green`,
             inline: 'border-b border-primary/10 leading-none pb-1',
         };
 

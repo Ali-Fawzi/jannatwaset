@@ -1,4 +1,6 @@
 import secondaryHeroImg from '../../asstes/images/secondaryHero.png'
+import * as motion from "framer-motion/client"
+import {animationVariants} from "~/lib/utils";
 
 export default function SecondaryHero({title} : {title: string}) {
     return (
@@ -11,7 +13,15 @@ export default function SecondaryHero({title} : {title: string}) {
             />
             <div className="mx-auto max-w-5xl py-36 text-white relative">
                 <div className='w-full text-center'>
-                    <span className='text-5xl sm:text-6xl xl:text-7xl drop-shadow-lg'>{title}</span>
+                    <motion.span
+                        initial={false}
+                        variants={animationVariants}
+                        whileInView={'visible'}
+                        viewport={{once: true}}
+                        className='text-5xl sm:text-6xl xl:text-7xl drop-shadow-lg opacity-0'
+                    >
+                        {title}
+                    </motion.span>
                 </div>
             </div>
         </div>

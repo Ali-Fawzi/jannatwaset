@@ -3,83 +3,63 @@ import WheatImg from '../../asstes/images/wheat.png'
 import {Button} from "~/components/ui/Button";
 import {Link} from "@remix-run/react";
 import * as motion from "framer-motion/client"
+import {animationVariants} from "~/lib/utils";
 
 export default function Greeting() {
     return (
         <div className='relative pb-32 max-w-screen-2xl mx-auto'>
             <motion.img
+                variants={animationVariants}
                 initial={{
-                    opacity: 0,
-                    x: 240
+                    x: 144
                 }}
-                whileInView={{
-                    opacity: 1,
-                    x: 0
-                }}
+                whileInView={'correctX'}
                 viewport={{ once: true }}
-                transition={{
-                    duration: 1,
-                    ease: 'easeOut',
-                }}
                 src={WheatImg}
-                className='absolute bottom-0 z-10'
+                className='absolute bottom-0 z-10 opacity-0'
                 alt='Wheat'
             />
             <motion.img
                 initial={{
-                    opacity: 0,
                     scaleX: -1,
-                    x: 72
+                    x: -144
                 }}
-                whileInView={{
-                    opacity: 1,
-                    x: 0
-                }}
+                variants={animationVariants}
+                whileInView={'correctX'}
                 viewport={{ once: true }}
-                transition={{
-                    duration: 1,
-                    ease: 'easeOut',
-                }}
                 src={WheatImg}
                 alt='Wheat'
-                className='absolute top-0 left-0 xl:hidden z-10'
-            />
-            <motion.img
-                initial={{
-                    opacity: 0,
-                    scaleX: -1,
-                    x: 240
-                }}
-                whileInView={{
-                    opacity: 1,
-                    x: 0
-                }}
-                viewport={{ once: true }}
-                transition={{
-                    duration: 1,
-                    ease: 'easeOut',
-                }}
-                src={WheatImg}
-                alt='Wheat'
-                className='absolute bottom-0 left-0 hidden xl:block z-10'
+                className='absolute top-0 left-0 xl:hidden z-10 opacity-0'
             />
             <motion.div
                 initial={{
-                    scale: 0.5,
-                    opacity: 0,
+                    scaleX: -1,
+                    x: 144
                 }}
-                whileInView={{
-                    scale: 1,
-                    opacity: 1,
-                }}
+                variants={animationVariants}
+                whileInView={'correctX'}
                 viewport={{ once: true }}
-                transition={{
-                    duration: 0.5,
-                    ease: 'easeOut',
-                }}
-                className='flex flex-col items-center justify-center max-w-7xl mx-auto bg-white -my-10 inner-curve rounded-lg'
+                className='absolute bottom-0 left-0 hidden xl:block z-10 opacity-0'
             >
-                <div className='flex flex-col items-center justify-center my-20 gap-4 w-full relative bg-white/50 xl:bg-background/0'>
+                <img src={WheatImg} alt='Wheat' />
+            </motion.div>
+            <motion.div
+                variants={animationVariants}
+                initial={{
+                    scale: 0.5,
+                }}
+                custom={0.5}
+                whileInView={'correctScale'}
+                viewport={{ once: true }}
+                className='flex flex-col items-center justify-center max-w-7xl mx-auto bg-white -my-10 inner-curve rounded-lg opacity-0'
+            >
+                <motion.div
+                    variants={animationVariants}
+                    initial={false}
+                    whileInView={'visible'}
+                    viewport={{ once: true }}
+                    className='flex flex-col items-center justify-center my-20 gap-4 w-full relative bg-white/50 xl:bg-background/0 opacity-0'
+                >
                     <Wheat/>
                     <span>مرحبا بكم في نموذجنا الزراعي</span>
                     <hr className='bg-green pb-[1px] w-8'/>
@@ -108,7 +88,7 @@ export default function Greeting() {
                             </Link>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </motion.div>
         </div>
     );

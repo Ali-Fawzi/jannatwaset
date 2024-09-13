@@ -3,6 +3,7 @@ import SecondaryHero from "~/components/ui/SecondaryHero";
 import Contact from "~/components/sections/Contact";
 import MapLocation from "~/components/MapLocation";
 import * as motion from "framer-motion/client"
+import {animationVariants} from "~/lib/utils";
 
 export const meta: MetaFunction = () => {
     return [
@@ -21,13 +22,11 @@ export default function ContactUs() {
                 <Contact />
             </section>
             <motion.section
-                initial={{
-                    opacity: 0,
-                }}
-                whileInView={{opacity: 1}}
+                initial={false}
+                variants={animationVariants}
+                whileInView={'visible'}
                 viewport={{once: true}}
-                transition={{ease: "easeOut", duration: 1}}
-                className='mt-16'
+                className='mt-16 opacity-0'
             >
                 <MapLocation />
             </motion.section>

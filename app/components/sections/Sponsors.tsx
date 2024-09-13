@@ -7,31 +7,25 @@ import 'swiper/css/navigation';
 import {useState} from "react";
 import {Skeleton} from "~/components/Skeleton";
 import * as motion from "framer-motion/client"
+import {animationVariants} from "~/lib/utils";
 
 export default function Sponsors() {
     const [loading, setLoading] = useState(true);
+    const slides = [1,2,3,4,5,6,7,8,9];
     return (
         <div className='flex flex-col items-center justify-center px-4 gap-16 my-8'>
             <motion.div
-                initial={{
-                    opacity: 0,
-                }}
-                whileInView={{opacity: 1}}
+                initial={false}
+                whileInView={'visible'}
                 viewport={{once: true}}
-                transition={{ease: "easeOut", duration: 1}}
-                className='flex flex-col items-center justify-center gap-4'
+                variants={animationVariants}
+                className='flex flex-col items-center justify-center gap-4 opacity-0'
             >
                 <span className='text-2xl'>الشركاء</span>
                 <hr className='bg-green pb-[1px] w-8'/>
                 <span className='text-3xl'>نحن نفتخر بشركائنا المميزين</span>
             </motion.div>
-            <motion.div
-                initial={{
-                    opacity: 0,
-                }}
-                whileInView={{opacity: 1}}
-                viewport={{once: true}}
-                transition={{ease: "easeOut", duration: 1}}
+            <div
                 className='max-w-6xl w-full mx-auto'
             >
                 <Swiper
@@ -64,82 +58,33 @@ export default function Sponsors() {
                             <div className="h-32 w-32 bg-gray-200 rounded-full mx-auto m-2 hidden 2xl:block" />
                         </Skeleton> :
                         <>
-                            <SwiperSlide>
-                                <Link to={'#'}>
-                                    <img
-                                        className="object-cover h-36 w-36 mx-auto"
-                                        src={img}
-                                        alt=''
-                                    />
-                                </Link>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Link to={'#'}>
-                                    <img
-                                        className="object-cover h-36 w-36 mx-auto"
-                                        src={img}
-                                        alt=''
-                                    />
-                                </Link>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Link to={'#'}>
-                                    <img
-                                        className="object-cover h-36 w-36 mx-auto"
-                                        src={img}
-                                        alt=''
-                                    />
-                                </Link>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Link to={'#'}>
-                                    <img
-                                        className="object-cover h-36 w-36 mx-auto"
-                                        src={img}
-                                        alt=''
-                                    />
-                                </Link>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Link to={'#'}>
-                                    <img
-                                        className="object-cover h-36 w-36 mx-auto"
-                                        src={img}
-                                        alt=''
-                                    />
-                                </Link>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Link to={'#'}>
-                                    <img
-                                        className="object-cover h-36 w-36 mx-auto"
-                                        src={img}
-                                        alt=''
-                                    />
-                                </Link>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Link to={'#'}>
-                                    <img
-                                        className="object-cover h-36 w-36 mx-auto"
-                                        src={img}
-                                        alt=''
-                                    />
-                                </Link>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Link to={'#'}>
-                                    <img
-                                        className="object-cover h-36 w-36 mx-auto"
-                                        src={img}
-                                        alt=''
-                                    />
-                                </Link>
-                            </SwiperSlide>
+                            {slides.map((slide, index) =>
+                                <SwiperSlide key={index}>
+                                    <motion.div
+                                        variants={animationVariants}
+                                        custom={index}
+                                        initial={{
+                                            y: 48
+                                        }}
+                                        whileInView={'correctY'}
+                                        viewport={{once: true}}
+                                        className='opacity-0'
+
+                                    >
+                                        <Link to={'#'}>
+                                            <img
+                                                className="object-cover h-36 w-36 mx-auto"
+                                                src={img}
+                                                alt=''
+                                            />
+                                        </Link>
+                                    </motion.div>
+                                </SwiperSlide>
+                            )}
                         </>
                     }
                 </Swiper>
-            </motion.div>
+            </div>
         </div>
     );
 }

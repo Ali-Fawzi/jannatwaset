@@ -7,7 +7,7 @@ export function NotFound() {
             <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">الصفحة غير متوفرة</h1>
             <p className="mt-6 text-base leading-7 text-gray-600">تعذر الوصول الى الصفحة المطلوبة</p>
             <div className="mt-10">
-                <Link to={'/'} className="text-sm font-semibold leading-7 transition transform ease-in-out duration-500 hover:text-yellow">
+                <Link to={'/'} className="text-sm font-semibold leading-7 animate-smooth hover:text-yellow">
                     العودة الى الصفحة الرئيسية <span aria-hidden="true">&larr;</span>
                 </Link>
             </div>

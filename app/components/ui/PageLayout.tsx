@@ -79,7 +79,7 @@ export function PageLayout({children}:{children: ReactNode}) {
                     <div className='sticky text-black bottom-16 m-4 w-10 mr-auto px-4'>
                         <div className='flex justify-end'>
                             <button
-                                className='bg-green rounded-full p-2 transition transform ease-in-out duration-500 opacity-80 hover:opacity-100 left-0'>
+                                className='bg-green rounded-full p-2 animate-smooth opacity-80 hover:opacity-100 left-0'>
                                 <WhatsApp className='w-10 h-10'/>
                             </button>
                         </div>
@@ -156,7 +156,7 @@ function Header() {
                             prefetch={'intent'}
                             to={menuItem.link}
                             className={({isActive}) => isActive ?
-                                "text-green font-semibold" : "transition transform duration-500 ease-in-out hover:text-green"
+                                "text-green font-semibold" : "animate-smooth hover:text-green"
                             }>
                             {menuItem.title}
                         </NavLink>
@@ -195,7 +195,7 @@ function Footer() {
                                     required
                                 />
                                 <button type="submit"
-                                        className="absolute end-2.5 bottom-1.5 bg-green transition transform ease-in-out duration-500 hover:bg-green/90 rounded-full p-1">
+                                        className="absolute end-2.5 bottom-1.5 bg-green animate-smooth hover:bg-green/90 rounded-full p-1">
                                     <LeftArrow />
                                 </button>
                             </div>
@@ -219,7 +219,7 @@ function Footer() {
                                 key={menuItem.title}
                                 to={menuItem.link}
                                 prefetch='intent'
-                                className='transition transform ease-in-out duration-500 hover:text-yellow'
+                                className='animate-smooth hover:text-yellow'
                             >
                                 {menuItem.title}
                             </NavLink>
@@ -228,7 +228,7 @@ function Footer() {
                     <nav className='flex flex-col items-center sm:items-start justify-between gap-3'>
                         <span className='text-white mb-4 text-base'>اخر المقالات</span>
                         <Link to={'#'}
-                              className='flex flex-row items-center justify-center gap-3 transition transform ease-in-out duration-500 hover:text-yellow'
+                              className='flex flex-row items-center justify-center gap-3 animate-smooth hover:text-yellow'
                         >
                             <img src={img} alt='' className='w-16 h-16 rounded-md flex-none'/>
                             <div className='flex flex-col items-start justify-between gap-1 h-full'>
@@ -237,7 +237,7 @@ function Footer() {
                             </div>
                         </Link>
                         <Link to={'#'}
-                              className='flex flex-row items-center justify-center gap-3 transition transform ease-in-out duration-500 hover:text-yellow'
+                              className='flex flex-row items-center justify-center gap-3 animate-smooth hover:text-yellow'
                         >
                             <img src={img} alt='' className='w-16 h-16 rounded-md flex-none'/>
                             <div className='flex flex-col items-start justify-between gap-1 h-full'>

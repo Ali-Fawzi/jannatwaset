@@ -2,6 +2,7 @@ import img from "../../asstes/images/img.jpg"
 import {Link} from "@remix-run/react";
 import {Button} from "~/components/ui/Button";
 import * as motion from "framer-motion/client"
+import {animationVariants} from "~/lib/utils";
 
 
 export default function LatestProjects() {
@@ -9,16 +10,12 @@ export default function LatestProjects() {
         <div className="flex flex-col items-center justify-center px-4 gap-4 my-8">
             <motion.div
                 initial={{
-                    opacity: 0,
-                    y:-120
+                    y:-72
                 }}
-                whileInView={{
-                    opacity: 1,
-                    y:0
-                }}
+                variants={animationVariants}
+                whileInView={'correctY'}
                 viewport={{ once: true }}
-                transition={{ ease: "easeOut", duration: 1 }}
-                className='flex flex-col xl:flex-row items-center justify-center gap-2'
+                className='flex flex-col xl:flex-row items-center justify-center gap-2 opacity-0'
             >
                 <div className='flex flex-col items-start justify-center gap-2'>
                     <span className='text-2xl'>اخر المشاريع</span>
@@ -43,13 +40,11 @@ export default function LatestProjects() {
                 </div>
             </motion.div>
             <motion.div
-                initial={{
-                    opacity: 0,
-                }}
-                whileInView={{opacity: 1}}
-                viewport={{once: true}}
-                transition={{ease: "easeOut", duration: 1}}
-                className='mt-8'
+                variants={animationVariants}
+                initial={false}
+                whileInView={'visible'}
+                viewport={{ once: true }}
+                className='mt-8 opacity-0'
             >
                 <Link to={'#'}>
                     <Button variant='secondary'>

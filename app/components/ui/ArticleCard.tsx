@@ -10,7 +10,7 @@ export default function ServiceCard() {
                 March 18, 2021
             </p>
             <div className='flex flex-col items-center justify-center mx-auto gap-6 max-w-xs mt-4 px-4'>
-                <p className='text-2xl font-semibold group-hover:text-yellow transition transform duration-500 ease-in-out'>افضل الطرق الحديثة لزراعة الفواكه الاستوائية</p>
+                <p className='text-2xl font-semibold group-hover:text-yellow animate-smooth'>افضل الطرق الحديثة لزراعة الفواكه الاستوائية</p>
                 <p>افضل واسهل الطرق الحديثة المستعملة لزراعة الفواكة الاستوائية في الشرق الاوسط في الصيف.</p>
             </div>
         </Link>

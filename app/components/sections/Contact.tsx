@@ -4,17 +4,16 @@ import Telephone from '../../asstes/icons/ContactTelephone.svg'
 import Email from '../../asstes/icons/ContactEmail.svg'
 import Location from '../../asstes/icons/ContactLocation.svg'
 import * as motion from "framer-motion/client"
+import {animationVariants} from "~/lib/utils";
 
 export default function Contact() {
     return (
         <motion.div
-            initial={{
-                opacity: 0,
-            }}
-            whileInView={{opacity: 1}}
+            initial={false}
+            variants={animationVariants}
+            whileInView={'visible'}
             viewport={{once: true}}
-            transition={{ease: "easeOut", duration: 1}}
-            className='flex flex-col items-center justify-center gap-2 px-4'
+            className='flex flex-col items-center justify-center gap-2 px-4 opacity-0'
         >
             <ContactIcon />
             <span>ابق على تواصل معنا</span>

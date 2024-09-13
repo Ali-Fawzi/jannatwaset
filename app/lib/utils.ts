@@ -22,7 +22,7 @@ export const animationVariants = {
             easing: 'ease-in-out',
         }
     },
-    correctY: (index: number) => ({
+    correctY: (index: number = 0) => ({
         opacity: 1,
         transition: {
             duration: 1,
@@ -31,7 +31,7 @@ export const animationVariants = {
         },
         y: 0,
     }),
-    correctX: (index: number) => ({
+    correctX: (index: number = 0) => ({
         opacity: 1,
         transition: {
             duration: 1,
@@ -47,5 +47,5 @@ export const animationVariants = {
             easing: 'ease-in-out',
         },
         scale: 1,
-    })
+    }),
 }

@@ -49,7 +49,7 @@ export default function Statistics() {
                         <motion.div
                             variants={animationVariants}
                             initial={{
-                                y: 72
+                                y: -72
                             }}
                             custom={index}
                             whileInView={'correctY'}

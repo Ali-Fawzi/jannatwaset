@@ -33,7 +33,7 @@
                 linear-gradient(90deg,#000 calc(50% - var(--_d)),#0000 0 calc(50% + var(--_d)),#000 0);
     }
     .triangle {
-        --r:20px;
+        --r:0;
         height: 480px;
         width: 880px;
         aspect-ratio: 1/cos(30deg);

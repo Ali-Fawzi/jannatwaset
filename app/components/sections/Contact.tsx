@@ -8,17 +8,25 @@ import {animationVariants} from "~/lib/utils";
 
 export default function Contact() {
     return (
-        <motion.div
-            initial={false}
-            variants={animationVariants}
-            whileInView={'visible'}
-            viewport={{once: true}}
-            className='flex flex-col items-center justify-center gap-2 px-4 opacity-0'
-        >
-            <ContactIcon />
-            <span>ابق على تواصل معنا</span>
-            <span className='text-3xl'>هل لديك اي سؤال؟</span>
-            <form className='grid grid-cols-1 xl:grid-cols-2 gap-8 max-w-5xl mx-auto w-full mt-8 justify-items-center'>
+        <div className='flex flex-col items-center justify-center gap-2 px-4'>
+            <motion.div
+                initial={false}
+                variants={animationVariants}
+                whileInView={'visible'}
+                viewport={{once: true}}
+                className='flex flex-col items-center justify-center gap-2 opacity-0'
+            >
+                <ContactIcon />
+                <span>ابق على تواصل معنا</span>
+                <span className='text-3xl'>هل لديك اي سؤال؟</span>
+            </motion.div>
+            <motion.form
+                initial={false}
+                variants={animationVariants}
+                whileInView={'visible'}
+                viewport={{once: true}}
+                className='grid grid-cols-1 xl:grid-cols-2 gap-8 max-w-5xl mx-auto w-full mt-8 justify-items-center opacity-0'
+            >
                 <input
                     required
                     name='name'
@@ -58,8 +66,14 @@ export default function Contact() {
                         ارسل الرسالة
                     </Button>
                 </div>
-            </form>
-            <div className='mt-16 w-full max-w-6xl mx-auto flex flex-col xl:flex-row gap-8 items-center justify-center'>
+            </motion.form>
+            <motion.div
+                initial={false}
+                variants={animationVariants}
+                whileInView={'visible'}
+                viewport={{once: true}}
+                className='mt-16 w-full max-w-6xl mx-auto flex flex-col xl:flex-row gap-8 items-center justify-center opacity-0'
+            >
                 <div className='border border-green rounded-lg py-12 flex flex-col items-center justify-center gap-2 w-full max-w-xs'>
                     <div className='p-4 rounded-full bg-background'>
                         <Telephone />
@@ -84,7 +98,7 @@ export default function Contact() {
                     <span>العراق , واسط</span>
                     <span>شارع الحي</span>
                 </div>
-            </div>
-        </motion.div>
+            </motion.div>
+        </div>
     )
 }

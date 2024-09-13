@@ -64,7 +64,7 @@ export default function Sponsors() {
                                         variants={animationVariants}
                                         custom={index}
                                         initial={{
-                                            y: 48
+                                            y: -48
                                         }}
                                         whileInView={'correctY'}
                                         viewport={{once: true}}

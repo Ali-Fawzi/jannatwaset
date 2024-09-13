@@ -10,9 +10,10 @@ export default function Greeting() {
         <div className='relative pb-32 max-w-screen-2xl mx-auto'>
             <motion.div
                 initial={{
-                    x: -72
+                    x: -48
                 }}
                 variants={animationVariants}
+                custom={1}
                 whileInView={'correctX'}
                 viewport={{once: true}}
                 className='absolute bottom-0 z-10 opacity-0'
@@ -22,9 +23,10 @@ export default function Greeting() {
             <motion.div
                 initial={{
                     scaleX: -1,
-                    x: 72
+                    x: 48
                 }}
                 variants={animationVariants}
+                custom={1}
                 whileInView={'correctX'}
                 viewport={{once: true}}
                 className='absolute top-0 left-0 xl:hidden z-10 opacity-0'
@@ -34,9 +36,10 @@ export default function Greeting() {
             <motion.div
                 initial={{
                     scaleX: -1,
-                    x: 72
+                    x: 48
                 }}
                 variants={animationVariants}
+                custom={1}
                 whileInView={'correctX'}
                 viewport={{once: true}}
                 className='absolute bottom-0 left-0 hidden xl:block z-10 opacity-0'

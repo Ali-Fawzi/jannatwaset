@@ -22,21 +22,21 @@ export const animationVariants = {
             easing: 'ease-in-out',
         }
     },
-    correctY: (index: number = 0) => ({
+    correctY: (delay: number = 0) => ({
         opacity: 1,
         transition: {
             duration: 1,
             easing: 'ease-in-out',
-            delay: index * 0.5,
+            delay: delay * 0.5,
         },
         y: 0,
     }),
-    correctX: (index: number = 0) => ({
+    correctX: (delay: number = 0) => ({
         opacity: 1,
         transition: {
             duration: 1,
             easing: 'ease-in-out',
-            delay: index * 0.5,
+            delay: delay * 0.5,
         },
         x: 0,
     }),

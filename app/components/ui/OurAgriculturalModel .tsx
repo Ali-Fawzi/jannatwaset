@@ -7,7 +7,7 @@ import {ReactElement} from "react";
 export default function OurAgriculturalModel({children}: {children: ReactElement}) {
     return (
         <div className='relative pb-32 max-w-screen-2xl mx-auto'>
-            <motion.div
+            <motion.img
                 initial={{
                     x: -48
                 }}
@@ -16,10 +16,10 @@ export default function OurAgriculturalModel({children}: {children: ReactElement
                 whileInView={'correctX'}
                 viewport={{once: true}}
                 className='absolute bottom-0 z-10 opacity-0'
-            >
-                <img src={WheatImg} alt='Wheat'/>
-            </motion.div>
-            <motion.div
+                src={WheatImg}
+                alt='Wheat'
+            />
+            <motion.img
                 initial={{
                     scaleX: -1,
                     x: 48
@@ -29,10 +29,10 @@ export default function OurAgriculturalModel({children}: {children: ReactElement
                 whileInView={'correctX'}
                 viewport={{once: true}}
                 className='absolute top-0 left-0 xl:hidden z-10 opacity-0'
-            >
-                <img src={WheatImg} alt='Wheat'/>
-            </motion.div>
-            <motion.div
+                src={WheatImg}
+                alt='Wheat'
+            />
+            <motion.img
                 initial={{
                     scaleX: -1,
                     x: 48
@@ -42,9 +42,8 @@ export default function OurAgriculturalModel({children}: {children: ReactElement
                 whileInView={'correctX'}
                 viewport={{once: true}}
                 className='absolute bottom-0 left-0 hidden xl:block z-10 opacity-0'
-            >
-                <img src={WheatImg} alt='Wheat'/>
-            </motion.div>
+                src={WheatImg} alt='Wheat'
+            />
             <motion.div
                 variants={animationVariants}
                 initial={{

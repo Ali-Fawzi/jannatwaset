@@ -3,7 +3,7 @@ import OurAgriculturalModel from "~/components/ui/OurAgriculturalModel ";
 export default function About() {
     return (
         <OurAgriculturalModel>
-            <div className='flex flex-col items-start justify-center gap-2 px-4 w-full max-w-4xl'>
+            <div className='flex flex-col items-start justify-center gap-2 px-4 w-full max-w-3xl'>
                 <p className='text-green text-xl'>
                     حول الشركة
                 </p>

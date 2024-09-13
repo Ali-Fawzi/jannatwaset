@@ -8,40 +8,40 @@ import {animationVariants} from "~/lib/utils";
 export default function Greeting() {
     return (
         <div className='relative pb-32 max-w-screen-2xl mx-auto'>
-            <motion.img
-                variants={animationVariants}
+            <motion.div
                 initial={{
-                    x: 144
+                    x: -72
                 }}
+                variants={animationVariants}
                 whileInView={'correctX'}
-                viewport={{ once: true }}
-                src={WheatImg}
+                viewport={{once: true}}
                 className='absolute bottom-0 z-10 opacity-0'
-                alt='Wheat'
-            />
-            <motion.img
-                initial={{
-                    scaleX: -1,
-                    x: -144
-                }}
-                variants={animationVariants}
-                whileInView={'correctX'}
-                viewport={{ once: true }}
-                src={WheatImg}
-                alt='Wheat'
-                className='absolute top-0 left-0 xl:hidden z-10 opacity-0'
-            />
+            >
+                <img src={WheatImg} alt='Wheat'/>
+            </motion.div>
             <motion.div
                 initial={{
                     scaleX: -1,
-                    x: 144
+                    x: 72
                 }}
                 variants={animationVariants}
                 whileInView={'correctX'}
-                viewport={{ once: true }}
+                viewport={{once: true}}
+                className='absolute top-0 left-0 xl:hidden z-10 opacity-0'
+            >
+                <img src={WheatImg} alt='Wheat'/>
+            </motion.div>
+            <motion.div
+                initial={{
+                    scaleX: -1,
+                    x: 72
+                }}
+                variants={animationVariants}
+                whileInView={'correctX'}
+                viewport={{once: true}}
                 className='absolute bottom-0 left-0 hidden xl:block z-10 opacity-0'
             >
-                <img src={WheatImg} alt='Wheat' />
+                <img src={WheatImg} alt='Wheat'/>
             </motion.div>
             <motion.div
                 variants={animationVariants}
@@ -50,20 +50,21 @@ export default function Greeting() {
                 }}
                 custom={0.5}
                 whileInView={'correctScale'}
-                viewport={{ once: true }}
+                viewport={{once: true}}
                 className='flex flex-col items-center justify-center max-w-7xl mx-auto bg-white -my-10 inner-curve rounded-lg opacity-0'
             >
                 <motion.div
                     variants={animationVariants}
                     initial={false}
                     whileInView={'visible'}
-                    viewport={{ once: true }}
+                    viewport={{once: true}}
                     className='flex flex-col items-center justify-center my-20 gap-4 w-full relative bg-white/50 xl:bg-background/0 opacity-0'
                 >
                     <Wheat/>
                     <span>مرحبا بكم في نموذجنا الزراعي</span>
                     <hr className='bg-green pb-[1px] w-8'/>
-                    <div className='flex flex-col xl:flex-row items-center justify-between gap-10 px-4 w-full max-w-6xl'>
+                    <div
+                        className='flex flex-col xl:flex-row items-center justify-between gap-10 px-4 w-full max-w-6xl'>
                         <div className='flex flex-col items-start justify-center gap-4 max-w-md'>
                             <p className='text-green text-lg'>
                                 <span className='text-xl'>1. </span>الخدمات الزراعية

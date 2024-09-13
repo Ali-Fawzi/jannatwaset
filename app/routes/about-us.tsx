@@ -1,9 +1,9 @@
 import type { MetaFunction } from "@remix-run/node";
 import SecondaryHero from "~/components/ui/SecondaryHero";
 import Statistics from "~/components/sections/Statistics";
-import Greeting from "~/components/sections/Greeting";
 import Sponsors from "~/components/sections/Sponsors";
 import Newsletter from "~/components/sections/Newsletter";
+import About from "~/components/sections/About";
 
 export const meta: MetaFunction = () => {
     return [
@@ -19,7 +19,7 @@ export default function AboutUs() {
                 <SecondaryHero title={'حول الشركة'}/>
             </section>
             <section>
-                <Greeting />
+                <About />
             </section>
             <section className='my-16'>
                 <Statistics />

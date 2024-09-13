@@ -1,12 +1,12 @@
 import type { MetaFunction } from "@remix-run/node";
 import Hero from "~/components/sections/Hero";
-import Greeting from "~/components/sections/Greeting";
 import OurServices from "~/components/sections/OurServices";
 import LatestProjects from "~/components/sections/LatestProjects";
 import LatestArticles from "~/components/sections/LatestArticles";
 import Sponsors from "~/components/sections/Sponsors";
 import Newsletter from "~/components/sections/Newsletter";
 import Statistics from "~/components/sections/Statistics";
+import Greeting from "~/components/sections/Greeting";
 
 export const meta: MetaFunction = () => {
   return [

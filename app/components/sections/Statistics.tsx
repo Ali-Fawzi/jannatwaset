@@ -26,7 +26,7 @@ export default function Statistics() {
         },
     ]
     return (
-        <div className='flex flex-col items-center justify-center gap-8 px-4'>
+        <div className='flex flex-col items-center justify-center gap-8 px-4 overflow-hidden'>
             <motion.img
                 initial={{
                     scale: 1.25

@@ -7,7 +7,7 @@ import {ReactElement} from "react";
 export default function OurAgriculturalModel({children}: {children: ReactElement}) {
     return (
         <div className='relative pb-32 max-w-screen-2xl mx-auto'>
-            <div className='absolute w-full h-full -my-10'>
+            <div className='absolute w-full h-full'>
                 <motion.div
                     variants={animationVariants}
                     initial={{
@@ -61,14 +61,14 @@ export default function OurAgriculturalModel({children}: {children: ReactElement
                     src={WheatImg} alt='Wheat'
                 />
             </>
-            <div className='relative w-full max-w-7xl mx-auto -my-10'>
+            <div className='relative w-full max-w-7xl mx-auto'>
                 <motion.div
                     variants={animationVariants}
                     custom={1}
                     initial={false}
                     whileInView={'visible'}
                     viewport={{once: true}}
-                    className='flex flex-col items-center justify-center my-10 gap-4 w-full bg-white/50 xl:bg-background/0 opacity-0'
+                    className='flex flex-col items-center justify-center gap-4 w-full bg-white/50 xl:bg-background/0 opacity-0'
                 >
                     <Wheat/>
                     <span>مرحبا بكم في نموذجنا الزراعي</span>

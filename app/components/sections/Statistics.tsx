@@ -1,7 +1,7 @@
 import * as motion from "framer-motion/client"
 import {animationVariants} from "~/lib/utils";
 import clsx from "clsx";
-
+import statisticImg from '../../asstes/images/statistics.png'
 export default function Statistics() {
     const statisticData = [
         {
@@ -27,15 +27,16 @@ export default function Statistics() {
     ]
     return (
         <div className='flex flex-col items-center justify-center gap-8 px-4'>
-            <motion.span
-                initial={false}
+            <motion.img
+                initial={{
+                    scale: 1.25
+                }}
                 variants={animationVariants}
-                whileInView={'visible'}
+                whileInView={['visible', 'correctScale']}
                 viewport={{ once: true }}
-                className='text-7xl sm:text-8xl md:text-9xl font-bold opacity-0'
-            >
-                الاحصائيات
-            </motion.span>
+                className='opacity-0'
+                src={statisticImg}
+            />
             <motion.div
                 initial={false}
                 variants={animationVariants}

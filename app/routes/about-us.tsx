@@ -21,7 +21,7 @@ export default function AboutUs() {
             <section>
                 <About />
             </section>
-            <section className='my-16'>
+            <section className='my-16 mt-72'>
                 <Statistics />
             </section>
             <section className='py-16 bg-background'>

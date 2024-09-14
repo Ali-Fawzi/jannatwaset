@@ -6,7 +6,7 @@ import {ReactElement} from "react";
 
 export default function OurAgriculturalModel({children}: {children: ReactElement}) {
     return (
-        <div className='relative pb-32 max-w-screen-2xl mx-auto overflow-hidden'>
+        <div className='relative pb-32 max-w-screen-2xl mx-auto'>
             <div className='absolute w-full h-full'>
                 <motion.div
                     variants={animationVariants}
@@ -22,7 +22,7 @@ export default function OurAgriculturalModel({children}: {children: ReactElement
                     />
                 </motion.div>
             </div>
-            <>
+            <div className='absolute w-full h-full overflow-hidden'>
                 <motion.img
                     initial={{
                         x: -72
@@ -60,7 +60,7 @@ export default function OurAgriculturalModel({children}: {children: ReactElement
                     className='absolute bottom-0 left-0 hidden xl:block opacity-0'
                     src={WheatImg} alt='Wheat'
                 />
-            </>
+            </div>
             <div className='relative w-full max-w-7xl mx-auto'>
                 <motion.div
                     variants={animationVariants}

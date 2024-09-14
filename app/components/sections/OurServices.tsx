@@ -19,7 +19,7 @@ export default function OurServices() {
                 <hr className='bg-green pb-[1px] w-8'/>
                 <span>توفر شركة جنة واسط العديد من الخدمات الاستثمارية والزراعية وتربية الابقار وزيادة انتاجيتها .</span>
             </motion.div>
-            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto'>
+            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto overflow-hidden'>
                 {services.map((service, index) =>
                     <motion.div
                         key={index}
@@ -35,7 +35,6 @@ export default function OurServices() {
                         <ServiceCard/>
                     </motion.div>
                 )}
-
             </div>
             <motion.div
                 initial={false}

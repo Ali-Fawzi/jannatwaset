@@ -76,7 +76,7 @@ export function PageLayout({children}:{children: ReactNode}) {
                 <Header />
                 <main role="main" id="mainContent" className="grow bg-white">
                     {children}
-                    <div className='sticky text-black bottom-16 m-4 w-10 mr-auto px-4'>
+                    <div className='sticky text-black bottom-16 m-4 w-10 mr-auto px-4 z-10'>
                         <div className='flex justify-end'>
                             <button
                                 className='bg-green rounded-full p-2 animate-smooth opacity-80 hover:opacity-100 left-0'>

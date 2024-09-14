@@ -16,7 +16,7 @@ export default function OurAgriculturalModel({children}: {children: ReactElement
                     custom={0.5}
                     whileInView={'correctScale'}
                     viewport={{once: true}}
-                    className='max-w-7xl mx-auto relative w-full h-[733px] xl:h-[495px] rounded-lg bg-gray-200 inner-curve p-[1px] opacity-0 -my-10'>
+                    className='max-w-7xl mx-auto relative w-full h-[733px] xl:h-[495px] xl:rounded-lg bg-gray-200 inner-curve p-[1px] opacity-0 -my-10'>
                     <div
                         className='flex flex-col items-center h-full justify-center w-full bg-white inner-curve rounded-lg'
                     />

@@ -27,18 +27,13 @@
                 linear-gradient(90deg,#000 calc(50% - var(--_d)),#0000 0 calc(50% + var(--_d)),#000 0);
     }
     .triangle {
-        --r:0;
-        height: 480px;
-        width: 880px;
+        --r:36px;
 
-        aspect-ratio: 1/cos(30deg);
-        --_g:calc(tan(60deg)*var(--r)) bottom var(--r),#000 98%,#0000 101%;
+        height: 220px;
+        aspect-ratio: 2;
         -webkit-mask:
-                conic-gradient(from -30deg at 50% calc(200% - 3*var(--r)/2),#000 60deg,#0000 0)
-                0 100%/100% calc(100% - 3*var(--r)/2) no-repeat,
-                radial-gradient(var(--r) at 50% calc(2*var(--r)),#000 98%,#0000 101%),
-                radial-gradient(var(--r) at left  var(--_g)),
-                radial-gradient(var(--r) at right var(--_g));
+                linear-gradient(#0000 calc(var(--r)/sqrt(2)),#000 0),
+                radial-gradient(var(--r) at 50% calc(var(--r)*sqrt(2)),#000 98%,#0000 101%);
         clip-path: polygon(50% 0,100% 100%,0 100%);
         background: white;
     }

@@ -8,13 +8,14 @@ export function missingClass(string?: string, prefix?: string) {
 }
 
 export const animationVariants = {
-    visible: {
+    visible: (delay: number = 1) =>( {
         opacity: 1,
         transition: {
             duration: 1,
             easing: 'ease-in-out',
+            delay: delay * 0.5,
         },
-    },
+    }),
     hidden: {
         opacity: 0,
         transition: {

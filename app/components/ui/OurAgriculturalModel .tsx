@@ -6,7 +6,7 @@ import {ReactElement} from "react";
 
 export default function OurAgriculturalModel({children}: {children: ReactElement}) {
     return (
-        <div className='relative pb-32 max-w-screen-2xl mx-auto'>
+        <div className='relative pb-32 max-w-screen-2xl mx-auto overflow-hidden'>
             <div className='absolute w-full h-full'>
                 <motion.div
                     variants={animationVariants}
@@ -25,7 +25,7 @@ export default function OurAgriculturalModel({children}: {children: ReactElement
             <>
                 <motion.img
                     initial={{
-                        x: -24
+                        x: -72
                     }}
                     variants={animationVariants}
                     custom={1}
@@ -38,7 +38,7 @@ export default function OurAgriculturalModel({children}: {children: ReactElement
                 <motion.img
                     initial={{
                         scaleX: -1,
-                        x: 24
+                        x: 72
                     }}
                     variants={animationVariants}
                     custom={1}
@@ -51,7 +51,7 @@ export default function OurAgriculturalModel({children}: {children: ReactElement
                 <motion.img
                     initial={{
                         scaleX: -1,
-                        x: 24
+                        x: 72
                     }}
                     variants={animationVariants}
                     custom={1}

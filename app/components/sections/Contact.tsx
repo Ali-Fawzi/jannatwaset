@@ -10,30 +10,30 @@ import WheatImg from "~/asstes/images/wheat.png";
 export default function Contact() {
     return (
         <div className='px-4'>
-            <div className='flex flex-col items-center justify-center gap-2 relative'>
-                <motion.div
+            <div className='flex flex-col items-center justify-center gap-2 relative overflow-hidden'>
+                <motion.img
                     initial={{
-                        y: -72
+                        x: -72
                     }}
                     variants={animationVariants}
-                    whileInView={'correctY'}
+                    whileInView={'correctX'}
                     viewport={{once: true}}
                     className='absolute top-0 left-0 hidden xl:block opacity-0'
-                >
-                    <img src={WheatImg} alt='Wheat'/>
-                </motion.div>
-                <motion.div
+                    src={WheatImg}
+                    alt='Wheat'
+                />
+                <motion.img
                     initial={{
-                        y: 72,
+                        x: 72,
                         scaleX: -1
                     }}
                     variants={animationVariants}
-                    whileInView={'correctY'}
+                    whileInView={'correctX'}
                     viewport={{once: true}}
                     className='absolute bottom-0 right-0 hidden xl:block opacity-0'
-                >
-                    <img src={WheatImg} alt='Wheat'/>
-                </motion.div>
+                    src={WheatImg}
+                    alt='Wheat'
+                />
                 <motion.div
                     initial={false}
                     variants={animationVariants}

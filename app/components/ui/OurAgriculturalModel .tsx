@@ -9,7 +9,7 @@ export default function OurAgriculturalModel({children}: {children: ReactElement
         <div className='relative pb-32 max-w-screen-2xl mx-auto'>
             <motion.img
                 initial={{
-                    x: -48
+                    x: -24
                 }}
                 variants={animationVariants}
                 custom={1}
@@ -22,7 +22,7 @@ export default function OurAgriculturalModel({children}: {children: ReactElement
             <motion.img
                 initial={{
                     scaleX: -1,
-                    x: 48
+                    x: 24
                 }}
                 variants={animationVariants}
                 custom={1}
@@ -35,7 +35,7 @@ export default function OurAgriculturalModel({children}: {children: ReactElement
             <motion.img
                 initial={{
                     scaleX: -1,
-                    x: 48
+                    x: 24
                 }}
                 variants={animationVariants}
                 custom={1}
@@ -52,20 +52,23 @@ export default function OurAgriculturalModel({children}: {children: ReactElement
                 custom={0.5}
                 whileInView={'correctScale'}
                 viewport={{once: true}}
-                className='flex flex-col items-center justify-center max-w-7xl mx-auto bg-white -my-10 inner-curve rounded-lg opacity-0'
-            >
-                <motion.div
-                    variants={animationVariants}
-                    initial={false}
-                    whileInView={'visible'}
-                    viewport={{once: true}}
-                    className='flex flex-col items-center justify-center my-20 gap-4 w-full relative bg-white/50 xl:bg-background/0 opacity-0'
+                className='max-w-7xl mx-auto -my-10 rounded-lg bg-gray-200 inner-curve p-[1px] opacity-0'>
+                <div
+                    className='flex flex-col items-center justify-center w-full bg-white inner-curve rounded-lg'
                 >
-                    <Wheat/>
-                    <span>مرحبا بكم في نموذجنا الزراعي</span>
-                    <hr className='bg-green pb-[1px] w-8'/>
-                    {children}
-                </motion.div>
+                    <motion.div
+                        variants={animationVariants}
+                        initial={false}
+                        whileInView={'visible'}
+                        viewport={{once: true}}
+                        className='flex flex-col items-center justify-center my-20 gap-4 w-full bg-white/50 xl:bg-background/0 opacity-0'
+                    >
+                        <Wheat/>
+                        <span>مرحبا بكم في نموذجنا الزراعي</span>
+                        <hr className='bg-green pb-[1px] w-8'/>
+                        {children}
+                    </motion.div>
+                </div>
             </motion.div>
         </div>
     );

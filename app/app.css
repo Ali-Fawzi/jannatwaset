@@ -12,13 +12,6 @@
     .animate-smooth {
         @apply transition transform ease-in-out duration-500
     }
-    .fadeIn {
-        opacity: 0;
-        animation: fadeInAnimation ease-in-out 500ms forwards;
-    }
-    .reflect {
-        transform: scaleX(-1);
-    }
     .inner-curve {
         --r: 135px;
         --s: 255px;
@@ -50,16 +43,6 @@
         background: white;
     }
 }
-
-@keyframes fadeInAnimation {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
 #nprogress {
     pointer-events: none;
 }

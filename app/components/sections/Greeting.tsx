@@ -12,7 +12,7 @@ export default function Greeting() {
                         <span className='text-xl'>1. </span>الخدمات الزراعية
                     </p>
                     <span className='xl:bg-white/50 rounded-lg'>توفر شركة جنة واسط الزراعية افضل الاستثمارات و الخدمات الزراعية التي تشمل البذور و الاسمدة والحراثة ورعاية الاشجار وازالتها وقص العشب والصيانة المستمرة للمكائن</span>
-                    <Link to='/services' prefetch={'intent'} className='mt-4'>
+                    <Link to='/app/routes/services._index' prefetch={'intent'} className='mt-4'>
                         <Button variant='primaryGreen'>
                             اقرا المزيد
                         </Button>
@@ -24,7 +24,7 @@ export default function Greeting() {
                         <span className='text-xl'>2. </span>خدمات الرعاية الحيوانية
                     </p>
                     <span className='xl:bg-white/50 rounded-lg'>توفر شركة جنة واسط مجموعة من الخدمات المخصصة لرعاية الابقار بطريقة تهدف الى تحسين صحتها وزيادة انتاجيتها مثل التغذية الصحية وادترة الانتاج والصحة البيئية والتربية والتدريب</span>
-                    <Link to='/services' className='mt-4' prefetch={'intent'}>
+                    <Link to='/app/routes/services._index' className='mt-4' prefetch={'intent'}>
                         <Button variant='primaryGreen'>
                             اقرا المزيد
                         </Button>

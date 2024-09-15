@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import SecondaryHero from "~/components/ui/SecondaryHero";
-import LatestArticles from "~/components/sections/LatestArticles";
+import OurArticles from "~/components/sections/OurArticles";
 
 export const meta: MetaFunction = () => {
     return [
@@ -15,8 +15,8 @@ export default function Articles() {
             <section>
                 <SecondaryHero title={'المقالات'} />
             </section>
-            <section>
-                <LatestArticles />
+            <section className='mb-16'>
+                <OurArticles />
             </section>
         </div>
     );

@@ -58,7 +58,7 @@ const Pagination = ({ children, itemsPerPage, itemsStyle, currentPage, totalItem
             </div>
             <div className="max-w-xs mx-auto flex flex-row items-center justify-center gap-2 mt-4">
                 <button
-                    className={clsx(currentPage === 1 ? 'opacity-50' : '', 'px-4 py-[11px] rounded-sm border border-gray-200')}
+                    className={clsx(currentPage === 1 ? 'opacity-50' : '', 'px-4 py-[11px] rounded-lg border border-gray-200')}
                     onClick={() => handlePageClick(currentPage - 1)}
                     disabled={currentPage === 1}
                 >
@@ -70,7 +70,7 @@ const Pagination = ({ children, itemsPerPage, itemsStyle, currentPage, totalItem
                             key={index}
                             onClick={() => typeof page === 'number' ? handlePageClick(page) : null}
                             disabled={page === currentPage || page === '...'}
-                            className={page === currentPage ? 'text-white bg-green px-4 py-2 rounded-sm' : 'text-green px-4 py-2 rounded-sm border border-gray-200'}
+                            className={page === currentPage ? 'text-white bg-green px-4 py-2 rounded-lg' : 'text-green px-4 py-2 rounded-lg border border-gray-200'}
                         >
                             {page}
                         </button>
@@ -78,7 +78,7 @@ const Pagination = ({ children, itemsPerPage, itemsStyle, currentPage, totalItem
                 </div>
                 <button
                     onClick={() => handlePageClick(currentPage + 1)}
-                    className={clsx(currentPage === totalPages ? 'opacity-50' : '', 'px-4 py-[11px] rounded-sm border border-gray-200')}
+                    className={clsx(currentPage === totalPages ? 'opacity-50' : '', 'px-4 py-[11px] rounded-lg border border-gray-200')}
                     disabled={currentPage === totalPages}
                 >
                     <Vector className='rotate-180'/>

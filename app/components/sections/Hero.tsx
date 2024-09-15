@@ -61,7 +61,7 @@ export default function Hero()
                         variants={animationVariants}
                         className='absolute flex flex-row bottom-8 left-20 items-start justify-center mb-4 opacity-0'
                     >
-                        <Link to='#'>
+                        <Link to='#' prefetch={'intent'}>
                             <Button>
                                 تصفح المزيد
                             </Button>

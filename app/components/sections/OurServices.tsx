@@ -4,7 +4,7 @@ import {Link} from "@remix-run/react";
 import * as motion from "framer-motion/client"
 import {animationVariants} from "~/lib/utils";
 
-export default function OurServices() {
+export default function OurServices({variant = 'section'}: {variant?: 'page' | 'section'}) {
     const services = [1,2,3,4,5,6]
     return (
         <div className='flex flex-col items-center justify-center px-4 overflow-hidden gap-16 my-8'>
@@ -36,19 +36,21 @@ export default function OurServices() {
                     </motion.div>
                 )}
             </div>
-            <motion.div
-                initial={false}
-                variants={animationVariants}
-                whileInView={'visible'}
-                viewport={{once: true}}
-                className='opacity-0'
-            >
-            <Link to={'#'} className='mt-8'>
-                    <Button variant='secondary'>
-                        عرض كل الخدمات
-                    </Button>
-                </Link>
-            </motion.div>
+            {variant === 'section' && (
+                <motion.div
+                    initial={false}
+                    variants={animationVariants}
+                    whileInView={'visible'}
+                    viewport={{once: true}}
+                    className='opacity-0'
+                >
+                    <Link to={'/services'} prefetch={'intent'} className='mt-8'>
+                        <Button variant='secondary'>
+                            عرض كل الخدمات
+                        </Button>
+                    </Link>
+                </motion.div>
+            )}
         </div>
     )
 }

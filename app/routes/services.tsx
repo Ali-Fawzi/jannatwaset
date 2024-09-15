@@ -15,7 +15,7 @@ export default function Services() {
                 <SecondaryHero title={'الخدمات'} />
             </section>
             <section className='mb-16'>
-                <OurServices />
+                <OurServices variant={'page'} />
             </section>
         </div>
     );

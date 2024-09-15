@@ -3,6 +3,7 @@ import {Link} from "@remix-run/react";
 import {Button} from "~/components/ui/Button";
 import * as motion from "framer-motion/client"
 import {animationVariants} from "~/lib/utils";
+import ProjectCard from "~/components/ui/ProjectCard";
 
 
 export default function LatestProjects() {
@@ -22,20 +23,33 @@ export default function LatestProjects() {
                     <hr className='bg-green pb-[1px] w-8'/>
                     <span className='mt-4 mb-10 max-w-lg'>اخر المشاريع المنجزة من قبل شركتنا التي تمتاز بدقتها والجودة العالية والضمان الحقيقي الذي تقدمة الشركة للزبائن</span>
                     <div className='flex flex-col md:flex-row items-center justify-center gap-2 mx-auto'>
-                        <img src={img} alt='' className='rounded-2xl w-[283px] h-[248px] object-cover'/>
-                        <img src={img} alt='' className='rounded-2xl w-[283px] h-[248px] object-cover'/>
+                        <div className='w-[283px] h-[248px]'>
+                            <ProjectCard />
+                        </div>
+                        <div className='w-[283px] h-[248px]'>
+                            <ProjectCard />
+                        </div>
                     </div>
-                    <img src={img} alt=''
-                         className='rounded-2xl md:w-[575px] w-[283px] h-[269px] object-cover mx-auto'/>
+                    <div className='md:w-[575px] w-[283px] h-[269px] mx-auto'>
+                        <ProjectCard />
+                    </div>
                 </div>
                 <div className='flex flex-col md:flex-row items-center justify-center gap-2'>
                     <div className='flex flex-col items-center justify-center mx-auto gap-2'>
-                        <img src={img} alt='' className='rounded-2xl w-[283px] h-[248px] object-cover'/>
-                        <img src={img} alt='' className='rounded-2xl w-[283px] h-[437px] object-cover'/>
+                        <div className='w-[283px] h-[248px]'>
+                            <ProjectCard />
+                        </div>
+                        <div className='w-[283px] h-[437px]'>
+                            <ProjectCard />
+                        </div>
                     </div>
                     <div className='flex flex-col items-center justify-center mx-auto gap-2'>
-                        <img src={img} alt='' className='rounded-2xl w-[283px] h-[417px] object-cover'/>
-                        <img src={img} alt='' className='rounded-2xl w-[283px] h-[269px] object-cover'/>
+                        <div className='w-[283px] h-[417px]'>
+                            <ProjectCard />
+                        </div>
+                        <div className='w-[283px] h-[269px]'>
+                            <ProjectCard />
+                        </div>
                     </div>
                 </div>
             </motion.div>
@@ -46,7 +60,7 @@ export default function LatestProjects() {
                 viewport={{ once: true }}
                 className='mt-8 opacity-0'
             >
-                <Link to={'#'}>
+                <Link to={'/projects'} prefetch={'intent'}>
                     <Button variant='secondary'>
                         عرض كل المشاريع
                     </Button>

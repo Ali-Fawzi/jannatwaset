@@ -26,14 +26,14 @@ export default function Hero({hero}: {hero: hero[]}) {
                     modules={[A11y, Autoplay]}
                     className='h-full'
                 >
-                    {hero.map((slide) =>
+                    {hero.map((slide, index) =>
                         <SwiperSlide key={slide.id}>
                             <motion.img
                                 initial={{
-                                    scale: 1.25,
+                                    scale: !index ? 1.25 : 1,
                                 }}
                                 variants={animationVariants}
-                                animate={['correctScale']}
+                                animate={!index ? 'correctScale' : ''}
                                 src={`https://api.alifawzi.software/${slide.url}`}
                                 alt='hero'
                                 className='w-full inset-0 h-full object-cover'

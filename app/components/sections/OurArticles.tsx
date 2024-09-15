@@ -9,28 +9,40 @@ export default function OurArticles() {
     const articles = [1,2,3,4,5,6,7,8,9]
     return (
         <div className='flex flex-col xl:flex-row items-center xl:items-start justify-center px-4 py-8 gap-16'>
-            <Pagination
-                itemsPerPage={9}
-                currentPage={1}
-                totalItems={9}
-                itemsStyle='grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto'
-            >
-                {articles.map((article, index) =>
-                    <motion.div
-                        key={index}
-                        variants={animationVariants}
-                        custom={index}
-                        initial={{
-                            y: 72
-                        }}
-                        whileInView={'correctY'}
-                        viewport={{once: true}}
-                        className='opacity-0'
-                    >
-                        <ArticleCard variant={'page'}/>
-                    </motion.div>
-                )}
-            </Pagination>
+            <div className='flex flex-col items-start justify-center gap-8'>
+                <motion.span
+                    initial={false}
+                    variants={animationVariants}
+                    whileInView={'visible'}
+                    custom={0}
+                    viewport={{once:true}}
+                    className='text-2xl font-semibold opacity-0'
+                >
+                    اخر المقالات
+                </motion.span>
+                <Pagination
+                    itemsPerPage={9}
+                    currentPage={1}
+                    totalItems={9}
+                    itemsStyle='grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto'
+                >
+                    {articles.map((article, index) =>
+                        <motion.div
+                            key={index}
+                            variants={animationVariants}
+                            custom={index}
+                            initial={{
+                                y: 72
+                            }}
+                            whileInView={'correctY'}
+                            viewport={{once: true}}
+                            className='opacity-0'
+                        >
+                            <ArticleCard variant={'page'}/>
+                        </motion.div>
+                    )}
+                </Pagination>
+            </div>
             <motion.div
                 initial={false}
                 variants={animationVariants}

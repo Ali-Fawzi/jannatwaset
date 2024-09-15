@@ -44,7 +44,7 @@ export default function OurServices({variant = 'section'}: {variant?: 'page' | '
                     viewport={{once: true}}
                     className='opacity-0'
                 >
-                    <Link to={'/services._index.tsx'} prefetch={'intent'} className='mt-8'>
+                    <Link to={'/services'} prefetch={'intent'} className='mt-8'>
                         <Button variant='secondary'>
                             عرض كل الخدمات
                         </Button>

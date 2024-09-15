@@ -60,7 +60,7 @@ export default function LatestProjects() {
                 viewport={{ once: true }}
                 className='mt-8 opacity-0'
             >
-                <Link to={'/projects._index.tsx'} prefetch={'intent'}>
+                <Link to={'/projects'} prefetch={'intent'}>
                     <Button variant='secondary'>
                         عرض كل المشاريع
                     </Button>

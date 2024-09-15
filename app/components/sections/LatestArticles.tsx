@@ -44,7 +44,7 @@ export default function LatestArticles() {
                 viewport={{once: true}}
                 className='mt-8 opacity-0'
             >
-                <Link to={'/articles._index.tsx'} prefetch={'intent'}>
+                <Link to={'/articles'} prefetch={'intent'}>
                     <Button variant='secondary'>
                         عرض كل المقالات
                     </Button>

@@ -8,6 +8,8 @@ import Newsletter from "~/components/sections/Newsletter";
 import Statistics from "~/components/sections/Statistics";
 import Greeting from "~/components/sections/Greeting";
 import {useLoaderData} from "react-router";
+import {Suspense} from "react";
+import {Await} from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -44,14 +46,14 @@ async function loadCriticalData() {
     };
 }
 async function loadDeferredData() {
-    const sponsor = await fetch(`${process.env.BASE_URL}/api/Sponser`)
+    const sponsors = await fetch(`${process.env.BASE_URL}/api/Sponser`)
 
     return {
-        sponsor
+        sponsors
     };
 }
 export default function Index() {
-    const {hero, sponsor} = useLoaderData();
+    const {hero, sponsors} = useLoaderData();
     return (
         <div className='-mb-24'>
         <section>
@@ -73,7 +75,14 @@ export default function Index() {
             <LatestArticles />
         </section>
         <section className='mt-16'>
-            <Sponsors />
+            {/*{sponsors && (*/}
+            {/*    <Suspense>*/}
+            {/*        <Await resolve={sponsors}>*/}
+            {/*            {(response)}*/}
+            {/*        </Await>*/}
+            {/*    </Suspense>*/}
+            {/*)}*/}
+            <Sponsors sponsors={sponsors} />
         </section>
         <section className='mt-16'>
             <Newsletter />

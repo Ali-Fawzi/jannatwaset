@@ -8,8 +8,11 @@ import {useState} from "react";
 import {Skeleton} from "~/components/Skeleton";
 import * as motion from "framer-motion/client"
 import {animationVariants} from "~/lib/utils";
-
-export default function Sponsors() {
+type sponsor = {
+    id: string,
+    url: string,
+}
+export default function Sponsors({sponsor}: {sponsor: sponsor[]}) {
     const [loading, setLoading] = useState(true);
     const slides = [1,2,3,4,5,6,7,8,9];
     return (

@@ -9,7 +9,7 @@ export default function ServiceCard() {
     return (
         <div className='w-[340px] h-[440px] rounded-2xl relative border border-green overflow-hidden'>
             <Link
-                to={'/'}
+                to={'/services/1'}
                 prefetch={'intent'}
                 onMouseEnter={() => setHovering(true)}
                 onMouseLeave={() => setHovering(false)}

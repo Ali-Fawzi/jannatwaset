@@ -4,7 +4,7 @@ import {Link} from "@remix-run/react";
 
 export default function ArticleCard({variant = 'section'}: {variant?: 'section' | 'page'}) {
     return (
-        <Link to={'#'} prefetch={'intent'} className='w-[350px] h-[520px] bg-white flex flex-col items-end justify-start rounded-lg drop-shadow-lg group'>
+        <Link to={'/articles/1'} prefetch={'intent'} className='w-[350px] h-[520px] bg-white flex flex-col items-end justify-start rounded-lg drop-shadow-lg group'>
             <img src={img} alt='' className='rounded-t-lg object-cover w-[350px] h-[262px]' />
             <p className='bg-yellow border border-white px-6 py-3 rounded-lg -mt-6 ml-6'>
                 March 18, 2021

@@ -9,7 +9,7 @@ export default function ProjectCard() {
     return (
         <div className='w-full h-full rounded-2xl relative overflow-hidden'>
             <Link
-                to={'/'}
+                to={'/projects/1'}
                 prefetch={'intent'}
                 onMouseEnter={() => setHovering(true)}
                 onMouseLeave={() => setHovering(false)}

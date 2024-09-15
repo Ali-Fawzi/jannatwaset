@@ -1,5 +1,6 @@
 import type {LoaderFunctionArgs, MetaFunction} from "@remix-run/node";
 import SecondaryHero from "~/components/ui/SecondaryHero";
+import {useLoaderData} from "react-router";
 export const meta: MetaFunction = () => {
     return [
         { title: "تفاصيل الخدمة" },
@@ -8,9 +9,12 @@ export const meta: MetaFunction = () => {
 };
 export async function loader(args: LoaderFunctionArgs) {
     const {id} = args.params;
-    return id;
+    const baseUrl = process.env.BASE_URL;
+
+    return baseUrl;
 }
 export default function Service() {
+    const loaderData = useLoaderData();
     return (
         <div className="-mb-24">
             <section>

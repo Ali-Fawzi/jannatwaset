@@ -3,22 +3,46 @@ import {Link} from "@remix-run/react";
 import heroImg from '../../asstes/images/hero.jpg'
 import * as motion from "framer-motion/client"
 import {animationVariants} from "~/lib/utils";
+import {Swiper, SwiperSlide} from "swiper/react";
+import {A11y, Autoplay} from "swiper/modules";
+import 'swiper/css';
 
-export default function Hero()
-{
+type hero = {
+    id: string,
+    url: string,
+}
+export default function Hero({hero}: {hero: hero[]}) {
+    // todo : image url update
     return (
         <div className='relative isolate overflow-hidden px-4'>
-            <motion.img
-                initial={{
-                    scale: 1.25,
-                }}
-                variants={animationVariants}
-                animate={['correctScale']}
-                src={heroImg}
-                alt='hero'
-                className='absolute w-full inset-0 -z-10 h-full object-cover'
-                loading='eager'
-            />
+            <div className='absolute w-full inset-0 -z-10 h-full'>
+                <Swiper
+                    autoplay={{
+                        delay: 5000,
+                        disableOnInteraction: true,
+                        stopOnLastSlide: false,
+                    }}
+                    dir={'rtl'}
+                    modules={[A11y, Autoplay]}
+                    className='h-full'
+                >
+                    {hero.map((slide) =>
+                        <SwiperSlide key={slide.id}>
+                            <motion.img
+                                initial={{
+                                    scale: 1.25,
+                                }}
+                                variants={animationVariants}
+                                animate={['correctScale']}
+                                src={`https://api.alifawzi.software/${slide.url}`}
+                                alt='hero'
+                                className='w-full inset-0 h-full object-cover'
+                                loading='eager'
+                            />
+                        </SwiperSlide>
+                    )}
+                </Swiper>
+            </div>
             <div className="mx-auto max-w-5xl py-36 text-white h-screen -mb-20 relative">
                 <motion.div
                     initial={{

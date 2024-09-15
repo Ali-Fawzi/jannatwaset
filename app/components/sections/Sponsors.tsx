@@ -21,7 +21,7 @@ export default function Sponsors() {
                 variants={animationVariants}
                 className='flex flex-col items-center justify-center gap-4 opacity-0'
             >
-                <span className='text-2xl'>الشركاء</span>
+                <span className='text-2xl font-bold'>الشركاء</span>
                 <hr className='bg-green pb-[1px] w-8'/>
                 <span className='text-3xl'>نحن نفتخر بشركائنا المميزين</span>
             </motion.div>

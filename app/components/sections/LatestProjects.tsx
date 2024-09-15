@@ -19,7 +19,7 @@ export default function LatestProjects() {
                 className='flex flex-col xl:flex-row items-center justify-center gap-2 opacity-0'
             >
                 <div className='flex flex-col items-start justify-center gap-2'>
-                    <span className='text-2xl'>اخر المشاريع</span>
+                    <span className='text-2xl font-bold'>اخر المشاريع</span>
                     <hr className='bg-green pb-[1px] w-8'/>
                     <span className='mt-4 mb-10 max-w-lg'>اخر المشاريع المنجزة من قبل شركتنا التي تمتاز بدقتها والجودة العالية والضمان الحقيقي الذي تقدمة الشركة للزبائن</span>
                     <div className='flex flex-col md:flex-row items-center justify-center gap-2 mx-auto'>

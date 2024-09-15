@@ -15,7 +15,7 @@ export default function OurServices({variant = 'section'}: {variant?: 'page' | '
                 viewport={{ once: true }}
                 className='flex flex-col items-center justify-center gap-4 opacity-0'
             >
-                <span className='text-2xl'>خدماتنا</span>
+                <span className='text-2xl font-bold'>خدماتنا</span>
                 <hr className='bg-green pb-[1px] w-8'/>
                 <span>توفر شركة جنة واسط العديد من الخدمات الاستثمارية والزراعية وتربية الابقار وزيادة انتاجيتها .</span>
             </motion.div>

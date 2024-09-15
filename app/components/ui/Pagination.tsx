@@ -1,5 +1,6 @@
-import Vector from '../../asstes/icons/Vector.svg'
+import Vector from '../../asstes/icons/Next.svg'
 import { useNavigate } from '@remix-run/react';
+import clsx from "clsx";
 
 const Pagination = ({ children, itemsPerPage, itemsStyle, currentPage, totalItems }) => {
     const navigate = useNavigate();
@@ -55,21 +56,21 @@ const Pagination = ({ children, itemsPerPage, itemsStyle, currentPage, totalItem
             <div className={itemsStyle}>
                 {children}
             </div>
-            <div className="max-w-xs mx-auto flex flex-row items-center justify-center gap-8 mt-4">
+            <div className="max-w-xs mx-auto flex flex-row items-center justify-center gap-2 mt-4">
                 <button
-                    className={currentPage === 1 ? 'opacity-50' : ''}
+                    className={clsx(currentPage === 1 ? 'opacity-50' : '', 'px-4 py-[11px] rounded-sm border border-gray-200')}
                     onClick={() => handlePageClick(currentPage - 1)}
                     disabled={currentPage === 1}
                 >
                     <Vector/>
                 </button>
-                <div className='flex flex-row items-center justify-center gap-4'>
+                <div className='flex flex-row items-center justify-center gap-2'>
                     {paginationRange.map((page, index) => (
                         <button
                             key={index}
                             onClick={() => typeof page === 'number' ? handlePageClick(page) : null}
                             disabled={page === currentPage || page === '...'}
-                            className={page === currentPage ? 'text-white bg-dark px-3 py-1' : ''}
+                            className={page === currentPage ? 'text-white bg-green px-4 py-2 rounded-sm' : 'text-green px-4 py-2 rounded-sm border border-gray-200'}
                         >
                             {page}
                         </button>
@@ -77,7 +78,7 @@ const Pagination = ({ children, itemsPerPage, itemsStyle, currentPage, totalItem
                 </div>
                 <button
                     onClick={() => handlePageClick(currentPage + 1)}
-                    className={currentPage === totalPages ? 'opacity-50' : ''}
+                    className={clsx(currentPage === totalPages ? 'opacity-50' : '', 'px-4 py-[11px] rounded-sm border border-gray-200')}
                     disabled={currentPage === totalPages}
                 >
                     <Vector className='rotate-180'/>

@@ -1,6 +1,5 @@
 import {Button} from "~/components/ui/Button";
 import {Link} from "@remix-run/react";
-import heroImg from '../../asstes/images/hero.jpg'
 import * as motion from "framer-motion/client"
 import {animationVariants} from "~/lib/utils";
 import {Swiper, SwiperSlide} from "swiper/react";
@@ -12,7 +11,6 @@ type hero = {
     url: string,
 }
 export default function Hero({hero}: {hero: hero[]}) {
-    // todo : image url update
     return (
         <div className='relative isolate overflow-hidden px-4'>
             <div className='absolute w-full inset-0 -z-10 h-full'>

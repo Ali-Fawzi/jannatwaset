@@ -3,22 +3,8 @@ import {Button} from "~/components/ui/Button";
 import * as motion from "framer-motion/client"
 import {animationVariants} from "~/lib/utils";
 import ProjectCard from "~/components/ui/ProjectCard";
+import {projectResponse} from "~/lib/type";
 
-export type project = {
-    id: string,
-    createdAt: string,
-    urlImage: string,
-    propertieses: string,
-    costumerName: string,
-    description: string,
-    services: string
-}
-export type projectResponse = {
-    currentPage: number,
-    pageSize: number,
-    totalPages: number,
-    data : project[]
-}
 export default function LatestProjects({projects, assetsUrl}:
 {projects: projectResponse; assetsUrl: string}
 ) {

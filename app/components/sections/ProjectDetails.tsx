@@ -1,5 +1,4 @@
-import {project} from "~/components/sections/LatestProjects";
-import img from '../../asstes/images/hero.jpg'
+import {project} from "~/lib/type";
 
 export default function ProjectDetails({project, assetsUrl}: {project: project; assetsUrl: string}) {
     const information = [

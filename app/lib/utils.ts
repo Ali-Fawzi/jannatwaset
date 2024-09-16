@@ -6,7 +6,12 @@ export function missingClass(string?: string, prefix?: string) {
     const regex = new RegExp(` ?${prefix}`, 'g');
     return string.match(regex) === null;
 }
+export function formatDate(dateStr: string) {
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const date = new Date(dateStr);
 
+    return date.toLocaleDateString("en-US", options);
+}
 export const animationVariants = {
     visible: (delay: number = 0) =>({
         opacity: 1,

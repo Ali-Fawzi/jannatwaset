@@ -6,7 +6,7 @@ import Newsletter from "~/components/sections/Newsletter";
 import About from "~/components/sections/About";
 import {Suspense} from "react";
 import SponsorsSkeleton from "~/components/ui/skeletons/SponsorsSkeleton";
-import {Await} from "@remix-run/react";
+import {Await, useRouteLoaderData} from "@remix-run/react";
 import {useLoaderData} from "react-router";
 
 export const meta: MetaFunction = () => {
@@ -18,7 +18,7 @@ export const meta: MetaFunction = () => {
 export async function loader() {
     const deferredData = loadDeferredData();
 
-    return defer({assetsUrl: process.env.BASE_URL, ...deferredData});
+    return defer({...deferredData});
 }
 function loadDeferredData() {
     const sponsorsPromise = fetch(`${process.env.BASE_URL}/api/Sponser`)
@@ -33,7 +33,8 @@ function loadDeferredData() {
     };
 }
 export default function AboutUs() {
-    const {sponsors, assetsUrl} = useLoaderData();
+    const {assetsUrl} = useRouteLoaderData<typeof loader>('root');
+    const {sponsors} = useLoaderData();
 
     return (
         <div className="-mb-24">

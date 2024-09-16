@@ -6,10 +6,8 @@ import {useState} from "react";
 import * as motion from "framer-motion/client"
 import {animationVariants} from "~/lib/utils";
 import SponsorsSkeleton from "~/components/ui/skeletons/SponsorsSkeleton";
-type sponsor = {
-    id: string,
-    url: string,
-}
+import {sponsor} from "~/lib/type";
+
 export default function Sponsors({sponsors, assetsUrl}: {sponsors: sponsor[]; assetsUrl: string}) {
     const [loading, setLoading] = useState(true);
     return (

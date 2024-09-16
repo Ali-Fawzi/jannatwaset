@@ -2,7 +2,7 @@ import {animationVariants} from "~/lib/utils";
 import ProjectCard from "~/components/ui/ProjectCard";
 import * as motion from "framer-motion/client"
 import Pagination from "~/components/ui/Pagination";
-import {project, projectResponse} from "~/components/sections/LatestProjects";
+import {project, projectResponse} from "~/lib/type";
 
 export default function OurProjects(
     {projects, assetsUrl}:

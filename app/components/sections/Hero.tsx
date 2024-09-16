@@ -5,11 +5,8 @@ import {animationVariants} from "~/lib/utils";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {A11y, Autoplay} from "swiper/modules";
 import 'swiper/css';
+import {hero} from "~/lib/type";
 
-type hero = {
-    id: string,
-    url: string,
-}
 export default function Hero({hero, assetsUrl}: {hero: hero[]; assetsUrl: string}) {
     return (
         <div className='relative isolate overflow-hidden px-4'>

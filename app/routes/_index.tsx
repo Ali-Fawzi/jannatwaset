@@ -9,7 +9,7 @@ import Statistics from "~/components/sections/Statistics";
 import Greeting from "~/components/sections/Greeting";
 import {useLoaderData} from "react-router";
 import {Suspense} from "react";
-import {Await} from "@remix-run/react";
+import {Await, useRouteLoaderData} from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -21,7 +21,7 @@ export async function loader() {
     const deferredData = loadDeferredData();
     const criticalData = await loadCriticalData();
 
-    return defer({assetsUrl: process.env.BASE_URL, ...deferredData, ...criticalData});
+    return defer({...deferredData, ...criticalData});
 }
 async function loadCriticalData() {
     const hero = await fetch(`${process.env.BASE_URL}/api/Slider`).then(response => {
@@ -57,7 +57,8 @@ function loadDeferredData() {
     };
 }
 export default function Index() {
-    const {hero, sponsors, projects, assetsUrl} = useLoaderData();
+    const {assetsUrl} = useRouteLoaderData<typeof loader>('root');
+    const {hero, sponsors, projects} = useLoaderData();
     return (
     <div className='-mb-24'>
         <section>

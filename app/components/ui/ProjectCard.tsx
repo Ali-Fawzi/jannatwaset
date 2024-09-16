@@ -3,7 +3,7 @@ import {animationVariants} from "~/lib/utils";
 import LeftArrow from '../../asstes/icons/LeftArrow.svg'
 import {Link} from "@remix-run/react";
 import {useState} from "react";
-import {project} from "~/components/sections/LatestProjects";
+import {project} from "~/lib/type";
 export default function ProjectCard({project, assetsUrl}: {project: project; assetsUrl: string}) {
     const [isHovering, setHovering] = useState(false);
     return (

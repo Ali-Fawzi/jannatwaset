@@ -2,6 +2,7 @@ import {defer, LoaderFunctionArgs, MetaFunction} from "@remix-run/node";
 import SecondaryHero from "~/components/ui/SecondaryHero";
 import {useLoaderData} from "react-router";
 import ProjectDetails from "~/components/sections/ProjectDetails";
+import {useRouteLoaderData} from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
     return [
@@ -13,7 +14,7 @@ export async function loader(args: LoaderFunctionArgs) {
     const {id} = args.params;
     const criticalData = await loadCriticalData(id);
 
-    return defer({assetsUrl: process.env.BASE_URL, ...criticalData});
+    return defer({...criticalData});
 }
 async function loadCriticalData(id: string | undefined) {
     const project = await fetch(`${process.env.BASE_URL}/api/Projects/${id}`).then(response => {
@@ -29,7 +30,8 @@ async function loadCriticalData(id: string | undefined) {
     };
 }
 export default function Project() {
-    const {project, assetsUrl} = useLoaderData();
+    const {assetsUrl} = useRouteLoaderData<typeof loader>('root');
+    const {project} = useLoaderData();
 
     return (
         <div className="-mb-24">

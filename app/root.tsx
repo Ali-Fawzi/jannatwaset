@@ -8,7 +8,7 @@ import {
 } from "@remix-run/react";
 import styles from "./app.css?url";
 import {PageLayout} from "~/components/ui/PageLayout";
-import {LinksFunction} from "@remix-run/node";
+import {defer, LinksFunction} from "@remix-run/node";
 import React, {useMemo} from "react";
 import NProgress from 'nprogress';
 import {NotFound} from "~/components/NotFound";
@@ -16,12 +16,28 @@ import {NotFound} from "~/components/NotFound";
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
 ];
+export async function loader() {
+    const deferredData = loadDeferredData();
 
+    return defer({assetsUrl: process.env.BASE_URL, ...deferredData});
+}
+function loadDeferredData() {
+    const articlesPromise = fetch(`${process.env.BASE_URL}/api/Artical?pageNumber=1&pageSize=3`)
+        .then(res => res.json())
+        .catch((error) => {
+            console.error(error);
+            return null;
+        })
+
+    return {
+        articles: articlesPromise,
+    };
+}
 export function Layout({ children }: { children: React.ReactNode }) {
   const navigation = useNavigation();
   const fetchers = useFetchers();
 
-  const state = useMemo<'idle' | 'loading'>(
+    const state = useMemo<'idle' | 'loading'>(
       function getGlobalState() {
           const states = [
               navigation.state,

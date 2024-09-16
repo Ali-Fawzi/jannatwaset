@@ -9,7 +9,7 @@ export default function ArticleCard({variant = 'section'}: {variant?: 'section' 
             <p className='bg-yellow border border-white px-6 py-3 rounded-lg -mt-6 ml-6'>
                 March 18, 2021
             </p>
-            <div className='flex flex-col items-center justify-center mx-auto gap-6 max-w-xs mt-4 px-4'>
+            <div className='flex flex-col items-center justify-center mx-auto gap-6 max-w-xs mt-4 px-4 overflow-hidden'>
                 <p className='text-2xl font-semibold group-hover:text-yellow animate-smooth'>افضل الطرق الحديثة لزراعة الفواكه الاستوائية</p>
                 <p>افضل واسهل الطرق الحديثة المستعملة لزراعة الفواكة الاستوائية في الشرق الاوسط في الصيف.</p>
             </div>

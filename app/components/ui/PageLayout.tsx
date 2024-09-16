@@ -1,5 +1,5 @@
-import {ReactNode} from "react";
-import {Link, NavLink} from "@remix-run/react";
+import {ReactNode, Suspense} from "react";
+import {Await, Link, NavLink, useRouteLoaderData} from "@remix-run/react";
 import {Drawer, useDrawer} from "~/components/ui/Drawer";
 import MenuIcon from "../../asstes/icons/Menu.svg"
 import Logo from "../../asstes/icons/Logo.svg"
@@ -14,8 +14,10 @@ import FooterTelephone from "../../asstes/icons/FooterTelephone.svg"
 import FooterLocation from "../../asstes/icons/FooterLocation.svg"
 import FooterMail from "../../asstes/icons/FooterMail.svg"
 import WhatsApp from "../../asstes/icons/WhatsApp.svg"
-import img from "../../asstes/images/img.png"
 import house from "../../asstes/images/house.png"
+import {loader} from "~/root";
+import {article} from "~/lib/type";
+import {formatDate} from "~/lib/utils";
 
 type MenuItem = {
     title: string;
@@ -168,6 +170,8 @@ function Header() {
 }
 
 function Footer() {
+    const {articles, assetsUrl} = useRouteLoaderData<typeof loader>('root');
+
     return (
         <footer aria-labelledby="footer-heading" className="bg-ground text-white/80 text-sm relative">
             <h2 id="footer-heading" className="sr-only">
@@ -225,26 +229,30 @@ function Footer() {
                             </NavLink>
                         )}
                     </nav>
-                    <nav className='flex flex-col items-center sm:items-start justify-between gap-3'>
+                    <nav className='flex flex-col items-center sm:items-start justify-start gap-3'>
                         <span className='text-white mb-4 text-base'>اخر المقالات</span>
-                        <Link to={'#'}
-                              className='flex flex-row items-center justify-center gap-3 animate-smooth hover:text-yellow'
-                        >
-                            <img src={img} alt='' className='w-16 h-16 rounded-md flex-none'/>
-                            <div className='flex flex-col items-start justify-between gap-1 h-full'>
-                                <span className='text-yellow'>Nov 16, 2020</span>
-                                <span>How to grow vagetables in the forms</span>
-                            </div>
-                        </Link>
-                        <Link to={'#'}
-                              className='flex flex-row items-center justify-center gap-3 animate-smooth hover:text-yellow'
-                        >
-                            <img src={img} alt='' className='w-16 h-16 rounded-md flex-none'/>
-                            <div className='flex flex-col items-start justify-between gap-1 h-full'>
-                                <span className='text-yellow'>Nov 16, 2020</span>
-                                <span>How to grow vagetables in the forms</span>
-                            </div>
-                        </Link>
+                        {articles && (
+                            <Suspense fallback={
+                                <span className='text-lg font-semibold text-center'>تحميل...</span>
+                            }>
+                                <Await resolve={articles}>
+                                    {(resolvedData) => resolvedData.data.map((article: article) =>
+                                        <Link
+                                            key={article.id}
+                                            to={`/articles/${article.id}`}
+                                            prefetch={'intent'}
+                                            className='flex flex-row items-center justify-center gap-3 animate-smooth hover:text-yellow overflow-hidden'
+                                        >
+                                            <img src={`${assetsUrl}/${article.image}`} alt={article.title} className='w-16 h-16 rounded-md flex-none'/>
+                                            <div className='flex flex-col items-start justify-evenly gap-1 h-full'>
+                                                <span className='text-yellow'>{formatDate(article.createdAt)}</span>
+                                                <span>{article.title}</span>
+                                            </div>
+                                        </Link>
+                                    )}
+                                </Await>
+                            </Suspense>
+                        )}
                     </nav>
                     <div className='flex flex-col items-center sm:items-start justify-between max-w-sm mx-auto space-y-3'>
                         <span className='text-white mb-4 text-base'>تواصل معنا</span>

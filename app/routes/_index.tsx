@@ -22,7 +22,7 @@ export async function loader() {
     const deferredData = loadDeferredData();
     const criticalData = await loadCriticalData();
 
-    return defer({...deferredData, ...criticalData});
+    return defer({...deferredData, ...criticalData, assetsUrl: process.env.BASE_URL});
 }
 async function loadCriticalData() {
     const hero = await fetch(`${process.env.BASE_URL}/api/Slider`).then(response => {
@@ -51,11 +51,11 @@ function loadDeferredData() {
     };
 }
 export default function Index() {
-    const {hero, sponsors} = useLoaderData();
+    const {hero, sponsors, assetsUrl} = useLoaderData();
     return (
     <div className='-mb-24'>
         <section>
-            <Hero hero={hero} />
+            <Hero hero={hero} assetsUrl={assetsUrl} />
         </section>
         <section className='bg-wheat'>
             <Greeting />
@@ -76,7 +76,7 @@ export default function Index() {
             <section className='mt-16'>
                 <Suspense fallback={<SponsorsSkeleton />}>
                     <Await resolve={sponsors}>
-                        {(resolvedData) => <Sponsors sponsors={resolvedData} />}
+                        {(resolvedData) => <Sponsors sponsors={resolvedData} assetsUrl={assetsUrl} />}
                     </Await>
                 </Suspense>
             </section>

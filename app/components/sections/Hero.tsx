@@ -10,7 +10,7 @@ type hero = {
     id: string,
     url: string,
 }
-export default function Hero({hero}: {hero: hero[]}) {
+export default function Hero({hero, assetsUrl}: {hero: hero[]; assetsUrl: string}) {
     return (
         <div className='relative isolate overflow-hidden px-4'>
             <div className='absolute w-full inset-0 -z-10 h-full'>
@@ -32,7 +32,7 @@ export default function Hero({hero}: {hero: hero[]}) {
                                 }}
                                 variants={animationVariants}
                                 animate={!index ? 'correctScale' : ''}
-                                src={`https://api.alifawzi.software/${slide.url}`}
+                                src={`${assetsUrl}/${slide.url}`}
                                 alt='hero'
                                 className='w-full inset-0 h-full object-cover'
                                 loading='eager'

@@ -10,7 +10,7 @@ type sponsor = {
     id: string,
     url: string,
 }
-export default function Sponsors({sponsors}: {sponsors: sponsor[]}) {
+export default function Sponsors({sponsors, assetsUrl}: {sponsors: sponsor[]; assetsUrl: string}) {
     const [loading, setLoading] = useState(true);
     return (
         <div className='flex flex-col items-center justify-center px-4 gap-16 my-8'>
@@ -66,7 +66,7 @@ export default function Sponsors({sponsors}: {sponsors: sponsor[]}) {
                                     >
                                         <img
                                             className="object-cover h-36 w-36 mx-auto"
-                                            src={`https://api.alifawzi.software/${sponsor.url}`}
+                                            src={`${assetsUrl}/${sponsor.url}`}
                                             alt='sponsor'
                                         />
                                     </motion.div>

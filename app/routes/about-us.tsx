@@ -18,7 +18,7 @@ export const meta: MetaFunction = () => {
 export async function loader() {
     const deferredData = loadDeferredData();
 
-    return defer({...deferredData});
+    return defer({...deferredData, assetsUrl: process.env.BASE_URL});
 }
 function loadDeferredData() {
     const sponsorsPromise = fetch(`${process.env.BASE_URL}/api/Sponser`)
@@ -33,7 +33,7 @@ function loadDeferredData() {
     };
 }
 export default function AboutUs() {
-    const {sponsors} = useLoaderData();
+    const {sponsors, assetsUrl} = useLoaderData();
 
     return (
         <div className="-mb-24">
@@ -50,7 +50,7 @@ export default function AboutUs() {
                 <section className='py-16 bg-background'>
                     <Suspense fallback={<SponsorsSkeleton/>}>
                         <Await resolve={sponsors}>
-                            {(resolvedData) => <Sponsors sponsors={resolvedData}/>}
+                            {(resolvedData) => <Sponsors sponsors={resolvedData} assetsUrl={assetsUrl}/>}
                         </Await>
                     </Suspense>
                 </section>

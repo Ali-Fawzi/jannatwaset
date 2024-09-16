@@ -63,7 +63,7 @@ export default function Sponsors({sponsors, assetsUrl}: {sponsors: sponsor[]; as
 
                                     >
                                         <img
-                                            className="object-cover h-36 w-36 mx-auto"
+                                            className="object-cover h-36 w-36 mx-auto rounded-full"
                                             src={`${assetsUrl}/${sponsor.url}`}
                                             alt='sponsor'
                                         />

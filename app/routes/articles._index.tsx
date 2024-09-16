@@ -4,6 +4,7 @@ import OurArticles from "~/components/sections/OurArticles";
 import {useRouteLoaderData} from "@remix-run/react";
 import {loader} from "~/routes/_index";
 import {useLoaderData} from "react-router";
+import OurProjectsSide from "~/components/sections/OurProjectsSide";
 
 export const meta: MetaFunction = () => {
     return [
@@ -52,7 +53,10 @@ export default function Articles() {
                 <SecondaryHero title={'المقالات'} />
             </section>
             <section className='mb-16'>
-                <OurArticles projects={projects} articles={articles} assetsUrl={assetsUrl} />
+                <div className='flex flex-col xl:flex-row items-center xl:items-start justify-center px-4 py-8 gap-16'>
+                    <OurArticles articles={articles} assetsUrl={assetsUrl} />
+                    <OurProjectsSide projects={projects} assetsUrl={assetsUrl} />
+                </div>
             </section>
         </div>
     );

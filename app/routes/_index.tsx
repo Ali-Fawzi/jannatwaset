@@ -10,6 +10,7 @@ import Greeting from "~/components/sections/Greeting";
 import {useLoaderData} from "react-router";
 import {Suspense} from "react";
 import {Await} from "@remix-run/react";
+import SponsorsSkeleton from "~/components/ui/skeletons/SponsorsSkeleton";
 
 export const meta: MetaFunction = () => {
   return [
@@ -18,50 +19,35 @@ export const meta: MetaFunction = () => {
   ];
 };
 export async function loader() {
-    // Start fetching non-critical data without blocking time to first byte
     const deferredData = loadDeferredData();
-
-    // Await the critical data required to render initial state of the page
     const criticalData = await loadCriticalData();
 
     return defer({...deferredData, ...criticalData});
 }
 async function loadCriticalData() {
-    const hero = await fetch(`${process.env.BASE_URL}/api/Slider`, {
-        method: "GET",
-        headers: {
-            'accept': 'text/plain',
-        }
-    }).then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    }).catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-        });
-
-    return {
-        hero
-    };
-}
-async function loadDeferredData() {
-    const sponsors = fetch(`${process.env.BASE_URL}/api/Sponser`, {
-        method: "GET",
-        headers: {
-            'accept': 'text/plain',
-        }
-    }).then(response => {
+    const hero = await fetch(`${process.env.BASE_URL}/api/Slider`).then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
         return response.json();
     }).catch(error => {
         console.error('There was a problem with the fetch operation:', error);
+    });
+
+    return {
+        hero
+    };
+}
+function loadDeferredData() {
+    const sponsorsPromise = fetch(`${process.env.BASE_URL}/api/Sponser`)
+        .then(res => res.json())
+        .catch((error) => {
+        console.error(error);
+        return null;
     })
 
     return {
-        sponsors
+        sponsors: sponsorsPromise
     };
 }
 export default function Index() {
@@ -86,16 +72,15 @@ export default function Index() {
         <section className='mt-16 bg-background'>
             <LatestArticles />
         </section>
-            {/*{sponsors && (*/}
-                <section className='mt-16'>
-                    {/*<Suspense fallback={null}>*/}
-                    {/*    <Await resolve={sponsors}>*/}
-                    {/*        {(response) => <Sponsors sponsors={response} />}*/}
-                    {/*    </Await>*/}
-                    {/*</Suspense>*/}
-                    <Sponsors sponsors={sponsors} />
-                </section>
-            {/*)}*/}
+        {sponsors && (
+            <section className='mt-16'>
+                <Suspense fallback={<SponsorsSkeleton />}>
+                    <Await resolve={sponsors}>
+                        {(resolvedData) => <Sponsors sponsors={resolvedData} />}
+                    </Await>
+                </Suspense>
+            </section>
+        )}
         <section className='mt-16'>
             <Newsletter />
         </section>

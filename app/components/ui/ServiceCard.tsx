@@ -39,7 +39,7 @@ export default function ServiceCard() {
                     className='absolute flex flex-col h-full w-full opacity-0'
                 >
                     <div className='grow bg-gradient-to-br from-green2/70 to-orange-500/70' />
-                    <div className='flex-none h-20 bg-gray-200' />
+                    <div className='flex-none h-20 bg-background' />
                 </motion.div>
                 <div className='relative w-full h-full flex flex-col items-center justify-between px-4 py-8'>
                     <motion.span

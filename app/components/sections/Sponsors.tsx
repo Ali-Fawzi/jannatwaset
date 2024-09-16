@@ -1,21 +1,17 @@
-import {Link} from "@remix-run/react";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {A11y, Autoplay, Navigation} from "swiper/modules";
-import img from "../../asstes/images/sponser.png"
 import 'swiper/css';
 import 'swiper/css/navigation';
 import {useState} from "react";
-import {Skeleton} from "~/components/Skeleton";
 import * as motion from "framer-motion/client"
 import {animationVariants} from "~/lib/utils";
+import SponsorsSkeleton from "~/components/ui/skeletons/SponsorsSkeleton";
 type sponsor = {
     id: string,
     url: string,
 }
 export default function Sponsors({sponsors}: {sponsors: sponsor[]}) {
-    console.log(sponsors)
     const [loading, setLoading] = useState(true);
-    const slides = [1,2,3,4,5,6,7,8,9];
     return (
         <div className='flex flex-col items-center justify-center px-4 gap-16 my-8'>
             <motion.div
@@ -53,17 +49,10 @@ export default function Sponsors({sponsors}: {sponsors: sponsor[]}) {
                     onInit={() => setLoading(false)}
                 >
                     {loading ?
-                        <Skeleton className='flex flex-row items-start justify-start'>
-                            <div className="h-32 w-32 bg-gray-200 rounded-full mx-auto m-2" />
-                            <div className="h-32 w-32 bg-gray-200 rounded-full mx-auto m-2 hidden sm:block" />
-                            <div className="h-32 w-32 bg-gray-200 rounded-full mx-auto m-2 hidden md:block" />
-                            <div className="h-32 w-32 bg-gray-200 rounded-full mx-auto m-2 hidden lg:block" />
-                            <div className="h-32 w-32 bg-gray-200 rounded-full mx-auto m-2 hidden xl:block" />
-                            <div className="h-32 w-32 bg-gray-200 rounded-full mx-auto m-2 hidden 2xl:block" />
-                        </Skeleton> :
+                        <SponsorsSkeleton /> :
                         <>
-                            {slides.map((slide, index) =>
-                                <SwiperSlide key={index}>
+                            {sponsors.map((sponsor, index) =>
+                                <SwiperSlide key={sponsor.id}>
                                     <motion.div
                                         variants={animationVariants}
                                         custom={index}
@@ -75,13 +64,11 @@ export default function Sponsors({sponsors}: {sponsors: sponsor[]}) {
                                         className='opacity-0'
 
                                     >
-                                        <Link to={'#'}>
-                                            <img
-                                                className="object-cover h-36 w-36 mx-auto"
-                                                src={img}
-                                                alt=''
-                                            />
-                                        </Link>
+                                        <img
+                                            className="object-cover h-36 w-36 mx-auto"
+                                            src={`https://api.alifawzi.software/${sponsor.url}`}
+                                            alt='sponsor'
+                                        />
                                     </motion.div>
                                 </SwiperSlide>
                             )}

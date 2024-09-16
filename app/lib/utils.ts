@@ -8,61 +8,65 @@ export function missingClass(string?: string, prefix?: string) {
 }
 
 export const animationVariants = {
-    visible: (delay: number = 1) =>({
+    visible: (delay: number = 0) =>({
         opacity: 1,
         transition: {
-            duration: 1,
+            duration: 0.5,
             easing: 'ease-in-out',
-            delay: delay * 0.5,
+            delay: delay * 0.25,
         },
     }),
-    hidden: (duration: number = 1) =>({
+    hidden: (delay: number = 1) =>({
         opacity: 0,
         transition: {
-            duration: duration,
+            duration: 0.5,
             easing: 'ease-in-out',
+            delay: delay * 0.25,
         }
     }),
     correctY: (delay: number = 0) => ({
         opacity: 1,
         transition: {
-            duration: 1,
+            duration: 0.5,
             easing: 'ease-in-out',
-            delay: delay * 0.5,
+            delay: delay * 0.25,
         },
         y: 0,
     }),
     correctX: (delay: number = 0) => ({
         opacity: 1,
         transition: {
-            duration: 1,
+            duration: 0.5,
             easing: 'ease-in-out',
-            delay: delay * 0.5,
+            delay: delay * 0.25,
         },
         x: 0,
     }),
-    correctScale: (duration: number = 1) =>({
+    correctScale: (delay: number = 0) =>({
         opacity: 1,
         transition: {
-            duration: duration,
+            duration: 0.5,
             easing: 'ease-in-out',
+            delay: delay * 0.25,
         },
         scale: 1,
     }),
-    shrink: (duration: number = 1) =>({
+    shrink: (delay: number = 0) =>({
         scale: 0.25,
         opacity: 0,
         transition: {
-            duration: duration,
+            duration: 0.5,
             easing: 'ease-in-out',
+            delay: delay * 0.25,
         }
     }),
-    dive: (duration: number = 1) =>({
+    dive: (delay: number = 0) =>({
         y: 72,
         opacity: 0,
         transition: {
-            duration: duration,
+            duration: 0.5,
             easing: 'ease-in-out',
+            delay: delay * 0.25,
         }
     }),
 }

@@ -28,7 +28,7 @@ export default function OurAgriculturalModel({children}: {children: ReactElement
                         x: -72
                     }}
                     variants={animationVariants}
-                    custom={1}
+                    custom={2}
                     whileInView={'correctX'}
                     viewport={{once: true}}
                     className='absolute bottom-0 opacity-0'
@@ -41,7 +41,7 @@ export default function OurAgriculturalModel({children}: {children: ReactElement
                         x: 72
                     }}
                     variants={animationVariants}
-                    custom={1}
+                    custom={2}
                     whileInView={'correctX'}
                     viewport={{once: true}}
                     className='absolute top-0 left-0 xl:hidden opacity-0'
@@ -54,7 +54,7 @@ export default function OurAgriculturalModel({children}: {children: ReactElement
                         x: 72
                     }}
                     variants={animationVariants}
-                    custom={1}
+                    custom={2}
                     whileInView={'correctX'}
                     viewport={{once: true}}
                     className='absolute bottom-0 left-0 hidden xl:block opacity-0'
@@ -64,7 +64,7 @@ export default function OurAgriculturalModel({children}: {children: ReactElement
             <div className='relative w-full max-w-7xl mx-auto'>
                 <motion.div
                     variants={animationVariants}
-                    custom={1}
+                    custom={2}
                     initial={false}
                     whileInView={'visible'}
                     viewport={{once: true}}

@@ -12,7 +12,8 @@ type sponsor = {
     id: string,
     url: string,
 }
-export default function Sponsors({sponsor}: {sponsor: sponsor[]}) {
+export default function Sponsors({sponsors}: {sponsors: sponsor[]}) {
+    console.log(sponsors)
     const [loading, setLoading] = useState(true);
     const slides = [1,2,3,4,5,6,7,8,9];
     return (

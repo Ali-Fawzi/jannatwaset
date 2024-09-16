@@ -15,7 +15,7 @@ export default function ArticleCard({variant = 'section'}: {variant?: 'section' 
             </div>
             {variant === 'page' && (
                 <button
-                    className='px-8 py-2 my-1 border border-gray-200 rounded-full font-semibold mx-auto animate-smooth group-hover:bg-black group-hover:text-white'
+                    className='px-8 py-2 m-2 border border-gray-200 rounded-full font-semibold mr-auto animate-smooth group-hover:bg-black group-hover:text-white'
                 >
                     اقراء المزيد
                 </button>

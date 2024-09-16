@@ -46,7 +46,19 @@ async function loadCriticalData() {
     };
 }
 async function loadDeferredData() {
-    const sponsors = await fetch(`${process.env.BASE_URL}/api/Sponser`)
+    const sponsors = fetch(`${process.env.BASE_URL}/api/Sponser`, {
+        method: "GET",
+        headers: {
+            'accept': 'text/plain',
+        }
+    }).then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    }).catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    })
 
     return {
         sponsors
@@ -55,7 +67,7 @@ async function loadDeferredData() {
 export default function Index() {
     const {hero, sponsors} = useLoaderData();
     return (
-        <div className='-mb-24'>
+    <div className='-mb-24'>
         <section>
             <Hero hero={hero} />
         </section>
@@ -74,16 +86,16 @@ export default function Index() {
         <section className='mt-16 bg-background'>
             <LatestArticles />
         </section>
-        <section className='mt-16'>
             {/*{sponsors && (*/}
-            {/*    <Suspense>*/}
-            {/*        <Await resolve={sponsors}>*/}
-            {/*            {(response)}*/}
-            {/*        </Await>*/}
-            {/*    </Suspense>*/}
+                <section className='mt-16'>
+                    {/*<Suspense fallback={null}>*/}
+                    {/*    <Await resolve={sponsors}>*/}
+                    {/*        {(response) => <Sponsors sponsors={response} />}*/}
+                    {/*    </Await>*/}
+                    {/*</Suspense>*/}
+                    <Sponsors sponsors={sponsors} />
+                </section>
             {/*)}*/}
-            <Sponsors sponsors={sponsors} />
-        </section>
         <section className='mt-16'>
             <Newsletter />
         </section>

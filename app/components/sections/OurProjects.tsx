@@ -2,9 +2,12 @@ import {animationVariants} from "~/lib/utils";
 import ProjectCard from "~/components/ui/ProjectCard";
 import * as motion from "framer-motion/client"
 import Pagination from "~/components/ui/Pagination";
+import {project, projectResponse} from "~/components/sections/LatestProjects";
 
-export default function OurProjects() {
-    const projects = [1,2,3,4,5,6,7,8,9]
+export default function OurProjects(
+    {projects, assetsUrl}:
+    {projects: projectResponse; assetsUrl: string}
+) {
     return (
         <div className='flex flex-col items-center justify-center px-4 overflow-hidden gap-16 my-8'>
             <motion.div
@@ -24,7 +27,7 @@ export default function OurProjects() {
                 totalItems={9}
                 itemsStyle='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto'
             >
-                {projects.map((project, index) =>
+                {projects.data.map((project: project, index) =>
                     <motion.div
                         key={index}
                         variants={animationVariants}
@@ -37,7 +40,7 @@ export default function OurProjects() {
                         className='opacity-0'
                     >
                         <div className='w-[340px] h-[440px]'>
-                            <ProjectCard/>
+                            <ProjectCard project={project} assetsUrl={assetsUrl} />
                         </div>
                     </motion.div>
                 )}

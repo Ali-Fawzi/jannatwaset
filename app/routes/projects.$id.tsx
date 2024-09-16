@@ -1,5 +1,7 @@
-import type {LoaderFunctionArgs, MetaFunction} from "@remix-run/node";
+import {defer, LoaderFunctionArgs, MetaFunction} from "@remix-run/node";
 import SecondaryHero from "~/components/ui/SecondaryHero";
+import {useLoaderData} from "react-router";
+import ProjectDetails from "~/components/sections/ProjectDetails";
 
 export const meta: MetaFunction = () => {
     return [
@@ -9,16 +11,33 @@ export const meta: MetaFunction = () => {
 };
 export async function loader(args: LoaderFunctionArgs) {
     const {id} = args.params;
-    return id;
+    const criticalData = await loadCriticalData(id);
+
+    return defer({assetsUrl: process.env.BASE_URL, ...criticalData});
+}
+async function loadCriticalData(id: string | undefined) {
+    const project = await fetch(`${process.env.BASE_URL}/api/Projects/${id}`).then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    }).catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
+    return {
+        project
+    };
 }
 export default function Project() {
+    const {project, assetsUrl} = useLoaderData();
+
     return (
         <div className="-mb-24">
             <section>
                 <SecondaryHero title={'تفاصيل المشروع'}/>
             </section>
             <section className='mb-16'>
-
+                <ProjectDetails project={project} assetsUrl={assetsUrl} />
             </section>
         </div>
     );

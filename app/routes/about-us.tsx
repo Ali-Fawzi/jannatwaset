@@ -18,7 +18,7 @@ export const meta: MetaFunction = () => {
 export async function loader() {
     const deferredData = loadDeferredData();
 
-    return defer({...deferredData, assetsUrl: process.env.BASE_URL});
+    return defer({assetsUrl: process.env.BASE_URL, ...deferredData});
 }
 function loadDeferredData() {
     const sponsorsPromise = fetch(`${process.env.BASE_URL}/api/Sponser`)

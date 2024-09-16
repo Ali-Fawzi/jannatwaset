@@ -10,7 +10,6 @@ import Greeting from "~/components/sections/Greeting";
 import {useLoaderData} from "react-router";
 import {Suspense} from "react";
 import {Await} from "@remix-run/react";
-import SponsorsSkeleton from "~/components/ui/skeletons/SponsorsSkeleton";
 
 export const meta: MetaFunction = () => {
   return [
@@ -22,7 +21,7 @@ export async function loader() {
     const deferredData = loadDeferredData();
     const criticalData = await loadCriticalData();
 
-    return defer({...deferredData, ...criticalData, assetsUrl: process.env.BASE_URL});
+    return defer({assetsUrl: process.env.BASE_URL, ...deferredData, ...criticalData});
 }
 async function loadCriticalData() {
     const hero = await fetch(`${process.env.BASE_URL}/api/Slider`).then(response => {
@@ -45,13 +44,20 @@ function loadDeferredData() {
         console.error(error);
         return null;
     })
+    const projectsPromise = fetch(`${process.env.BASE_URL}/api/Projects?pageNumber=1&pageSize=6`)
+        .then(res => res.json())
+        .catch((error) => {
+        console.error(error);
+        return null;
+    })
 
     return {
-        sponsors: sponsorsPromise
+        sponsors: sponsorsPromise,
+        projects: projectsPromise
     };
 }
 export default function Index() {
-    const {hero, sponsors, assetsUrl} = useLoaderData();
+    const {hero, sponsors, projects, assetsUrl} = useLoaderData();
     return (
     <div className='-mb-24'>
         <section>
@@ -63,9 +69,15 @@ export default function Index() {
         <section className='mt-16'>
             <OurServices />
         </section>
-        <section className='mt-16'>
-            <LatestProjects />
-        </section>
+        {projects && (
+            <section className='mt-16'>
+                <Suspense fallback={<span className='text-lg font-semibold text-center'>تحميل...</span>}>
+                    <Await resolve={projects}>
+                        {(resolvedData) => <LatestProjects projects={resolvedData} assetsUrl={assetsUrl} />}
+                    </Await>
+                </Suspense>
+            </section>
+        )}
         <section className='mt-16'>
             <Statistics />
         </section>
@@ -74,7 +86,7 @@ export default function Index() {
         </section>
         {sponsors && (
             <section className='mt-16'>
-                <Suspense fallback={<SponsorsSkeleton />}>
+                <Suspense fallback={<span className='text-lg font-semibold text-center'>تحميل...</span>}>
                     <Await resolve={sponsors}>
                         {(resolvedData) => <Sponsors sponsors={resolvedData} assetsUrl={assetsUrl} />}
                     </Await>

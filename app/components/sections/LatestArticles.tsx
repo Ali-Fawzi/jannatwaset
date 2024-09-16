@@ -3,10 +3,12 @@ import {Link} from "@remix-run/react";
 import {Button} from "~/components/ui/Button";
 import * as motion from "framer-motion/client"
 import {animationVariants} from "~/lib/utils";
+import {article, articleResponse} from "~/lib/type";
 
-export default function LatestArticles() {
-    const articles = [1,2,3]
-
+export default function LatestArticles(
+    {articles, assetsUrl}:
+    {articles: articleResponse; assetsUrl: string}
+) {
     return (
         <div className='flex flex-col items-center justify-center px-4 py-8 gap-16'>
             <motion.div
@@ -21,7 +23,7 @@ export default function LatestArticles() {
                 <span className='text-3xl'>اخر المقالات والاخبار</span>
             </motion.div>
             <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mt-8 mx-auto'>
-                {articles.map((article, index) =>
+                {articles.data.map((article: article, index) =>
                     <motion.div
                         key={index}
                         variants={animationVariants}
@@ -33,7 +35,7 @@ export default function LatestArticles() {
                         viewport={{once: true}}
                         className='opacity-0'
                     >
-                        <ArticleCard/>
+                        <ArticleCard article={article} assetsUrl={assetsUrl} />
                     </motion.div>
                 )}
             </div>

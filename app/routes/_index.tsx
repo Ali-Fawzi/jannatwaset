@@ -57,7 +57,7 @@ function loadDeferredData() {
     };
 }
 export default function Index() {
-    const {assetsUrl} = useRouteLoaderData<typeof loader>('root');
+    const {articles, assetsUrl} = useRouteLoaderData<typeof loader>('root');
     const {hero, sponsors, projects} = useLoaderData();
     return (
     <div className='-mb-24'>
@@ -82,9 +82,15 @@ export default function Index() {
         <section className='mt-16'>
             <Statistics />
         </section>
-        <section className='mt-16 bg-background'>
-            <LatestArticles />
-        </section>
+        {articles && (
+            <section className='mt-16 bg-background'>
+                <Suspense fallback={<span className='text-lg font-semibold text-center'>تحميل...</span>}>
+                    <Await resolve={articles}>
+                        {(resolvedData) => <LatestArticles articles={resolvedData} assetsUrl={assetsUrl} />}
+                    </Await>
+                </Suspense>
+            </section>
+        )}
         {sponsors && (
             <section className='mt-16'>
                 <Suspense fallback={<span className='text-lg font-semibold text-center'>تحميل...</span>}>

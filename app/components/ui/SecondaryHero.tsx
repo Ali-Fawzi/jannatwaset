@@ -17,7 +17,6 @@ export default function SecondaryHero({title} : {title: string}) {
                         initial={false}
                         variants={animationVariants}
                         whileInView={'visible'}
-                        viewport={{once: true}}
                         className='text-5xl sm:text-6xl xl:text-7xl drop-shadow-lg opacity-0'
                     >
                         {title}

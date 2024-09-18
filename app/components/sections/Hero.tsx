@@ -6,6 +6,7 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import {A11y, Autoplay} from "swiper/modules";
 import 'swiper/css';
 import {hero} from "~/lib/type";
+import heroImage from '../../asstes/images/hero.jpg';
 
 export default function Hero({hero, assetsUrl}: {hero: hero[]; assetsUrl: string}) {
     return (
@@ -21,7 +22,7 @@ export default function Hero({hero, assetsUrl}: {hero: hero[]; assetsUrl: string
                     modules={[A11y, Autoplay]}
                     className='h-full'
                 >
-                    {hero.map((slide, index) =>
+                    {hero.length > 0 ? hero.map((slide, index) =>
                         <SwiperSlide key={slide.id}>
                             <motion.img
                                 initial={{
@@ -35,7 +36,19 @@ export default function Hero({hero, assetsUrl}: {hero: hero[]; assetsUrl: string
                                 loading='eager'
                             />
                         </SwiperSlide>
-                    )}
+                    ) : <SwiperSlide>
+                        <motion.img
+                            initial={{
+                                scale: 1.25,
+                            }}
+                            variants={animationVariants}
+                            animate={'correctScale'}
+                            src={heroImage}
+                            alt='hero'
+                            className='w-full inset-0 h-full object-cover'
+                            loading='eager'
+                        />
+                    </SwiperSlide>}
                 </Swiper>
             </div>
             <div className="mx-auto max-w-5xl py-36 text-white h-screen -mb-20 relative">

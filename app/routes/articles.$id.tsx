@@ -1,6 +1,5 @@
 import {defer, LoaderFunctionArgs, MetaFunction} from "@remix-run/node";
 import SecondaryHero from "~/components/ui/SecondaryHero";
-import OurArticles from "~/components/sections/OurArticles";
 import OurProjectsSide from "~/components/sections/OurProjectsSide";
 import {useRouteLoaderData} from "@remix-run/react";
 import {useLoaderData} from "react-router";

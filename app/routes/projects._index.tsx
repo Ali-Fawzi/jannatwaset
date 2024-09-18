@@ -36,7 +36,7 @@ export default function Projects() {
             <section>
                 <SecondaryHero title={'المشاريع'}/>
             </section>
-            <section className='mb-16'>
+            <section className='mb-24'>
                 <OurProjects projects={projects} assetsUrl={assetsUrl} />
             </section>
         </div>

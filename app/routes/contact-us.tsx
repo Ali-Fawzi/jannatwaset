@@ -14,7 +14,7 @@ export const meta: MetaFunction = () => {
 
 export default function ContactUs() {
     return (
-        <div className="-mb-24">
+        <>
             <section>
                 <SecondaryHero title={'تواصل معنا'} />
             </section>
@@ -30,6 +30,6 @@ export default function ContactUs() {
             >
                 <MapLocation />
             </motion.section>
-        </div>
+        </>
     );
 }

@@ -48,7 +48,7 @@ export default function Article() {
     const {assetsUrl} = useRouteLoaderData<typeof loader>('root');
     const {article, projects} = useLoaderData();
     return (
-        <div className="-mb-24">
+        <>
             <section>
                 <SecondaryHero title={'تفاصيل المقالة'} />
             </section>
@@ -58,6 +58,6 @@ export default function Article() {
                     <OurProjectsSide projects={projects} assetsUrl={assetsUrl}/>
                 </div>
             </section>
-        </div>
+        </>
     );
 }

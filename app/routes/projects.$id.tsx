@@ -34,13 +34,13 @@ export default function Project() {
     const {project} = useLoaderData();
 
     return (
-        <div className="-mb-24">
+        <>
             <section>
                 <SecondaryHero title={'تفاصيل المشروع'}/>
             </section>
             <section className='mb-16'>
                 <ProjectDetails project={project} assetsUrl={assetsUrl} />
             </section>
-        </div>
+        </>
     );
 }

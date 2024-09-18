@@ -37,7 +37,7 @@ export default function AboutUs() {
     const {sponsors} = useLoaderData();
 
     return (
-        <div className="-mb-24">
+        <>
             <section>
                 <SecondaryHero title={'حول الشركة'}/>
             </section>
@@ -59,6 +59,6 @@ export default function AboutUs() {
             <section>
                 <Newsletter />
             </section>
-        </div>
+        </>
     );
 }

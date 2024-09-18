@@ -16,13 +16,13 @@ export async function loader(args: LoaderFunctionArgs) {
 export default function Service() {
     const loaderData = useLoaderData();
     return (
-        <div className="-mb-24">
+        <>
             <section>
                 <SecondaryHero title={'تفاصيل الخدمة'} />
             </section>
             <section className='mb-16'>
 
             </section>
-        </div>
+        </>
     );
 }

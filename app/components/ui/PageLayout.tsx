@@ -78,17 +78,13 @@ export function PageLayout({children}:{children: ReactNode}) {
                 <Header />
                 <main role="main" id="mainContent" className="grow bg-white">
                     {children}
-                    <div className='sticky text-black bottom-16 m-4 w-10 mr-auto px-4 z-10'>
-                        <div className='flex justify-end'>
-                            <FloatingWhatsApp
-                                phoneNumber={'+964 774 260 8888'}
-                                accountName={'شركة جنة واسط الزراعية'}
-                                chatMessage={'مرحبا كيف يمكننا ان نساعدك ؟'}
-                                placeholder={'اكتب رسالة'}
-                                avatar={whatsappAvatar}
-                            />
-                        </div>
-                    </div>
+                    <FloatingWhatsApp
+                        phoneNumber={'+964 774 260 8888'}
+                        accountName={'شركة جنة واسط الزراعية'}
+                        chatMessage={'مرحبا كيف يمكننا ان نساعدك ؟'}
+                        placeholder={'اكتب رسالة'}
+                        avatar={whatsappAvatar}
+                    />
                 </main>
             </div>
             <Footer/>

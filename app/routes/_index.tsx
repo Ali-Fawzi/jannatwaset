@@ -60,7 +60,7 @@ export default function Index() {
     const {articles, assetsUrl} = useRouteLoaderData<typeof loader>('root');
     const {hero, sponsors, projects} = useLoaderData();
     return (
-    <div className='-mb-24'>
+    <>
         <section>
             <Hero hero={hero} assetsUrl={assetsUrl} />
         </section>
@@ -103,6 +103,6 @@ export default function Index() {
         <section className='mt-16'>
             <Newsletter />
         </section>
-    </div>
+    </>
   );
 }

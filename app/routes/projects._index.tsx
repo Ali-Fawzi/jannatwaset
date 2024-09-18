@@ -32,13 +32,13 @@ export default function Projects() {
     const {assetsUrl} = useRouteLoaderData<typeof loader>('root');
     const {projects} = useLoaderData();
     return (
-        <div className="-mb-24">
+        <>
             <section>
                 <SecondaryHero title={'المشاريع'}/>
             </section>
-            <section className='mb-24'>
+            <section className='mb-16'>
                 <OurProjects projects={projects} assetsUrl={assetsUrl} />
             </section>
-        </div>
+        </>
     );
 }

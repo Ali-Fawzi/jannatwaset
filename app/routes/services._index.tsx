@@ -10,13 +10,13 @@ export const meta: MetaFunction = () => {
 
 export default function Services() {
     return (
-        <div className="-mb-24">
+        <>
             <section>
                 <SecondaryHero title={'الخدمات'} />
             </section>
             <section className='mb-16'>
                 <OurServices variant={'page'} />
             </section>
-        </div>
+        </>
     );
 }

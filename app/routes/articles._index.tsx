@@ -2,7 +2,6 @@ import {defer, MetaFunction} from "@remix-run/node";
 import SecondaryHero from "~/components/ui/SecondaryHero";
 import OurArticles from "~/components/sections/OurArticles";
 import {useRouteLoaderData} from "@remix-run/react";
-import {loader} from "~/routes/_index";
 import {useLoaderData} from "react-router";
 import OurProjectsSide from "~/components/sections/OurProjectsSide";
 
@@ -48,7 +47,7 @@ export default function Articles() {
     const {articles, projects} = useLoaderData();
 
     return (
-        <div className="-mb-24">
+        <d>
             <section>
                 <SecondaryHero title={'المقالات'} />
             </section>
@@ -58,6 +57,6 @@ export default function Articles() {
                     <OurProjectsSide projects={projects} assetsUrl={assetsUrl} />
                 </div>
             </section>
-        </div>
+        </d>
     );
 }

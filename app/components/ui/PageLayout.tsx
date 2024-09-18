@@ -13,12 +13,12 @@ import LeftArrow from "../../asstes/icons/LeftArrow.svg"
 import FooterTelephone from "../../asstes/icons/FooterTelephone.svg"
 import FooterLocation from "../../asstes/icons/FooterLocation.svg"
 import FooterMail from "../../asstes/icons/FooterMail.svg"
-import WhatsApp from "../../asstes/icons/WhatsApp.svg"
 import house from "../../asstes/images/house.png"
 import {loader} from "~/root";
 import {article} from "~/lib/type";
 import {formatDate} from "~/lib/utils";
-
+import {FloatingWhatsApp} from "react-floating-whatsapp";
+import whatsappAvatar from '../../asstes/images/top-10-qualities-of-a-call-center-agent.jpg'
 type MenuItem = {
     title: string;
     link: string;
@@ -80,10 +80,13 @@ export function PageLayout({children}:{children: ReactNode}) {
                     {children}
                     <div className='sticky text-black bottom-16 m-4 w-10 mr-auto px-4 z-10'>
                         <div className='flex justify-end'>
-                            <button
-                                className='bg-green rounded-full p-2 animate-smooth opacity-80 hover:opacity-100 left-0'>
-                                <WhatsApp className='w-10 h-10'/>
-                            </button>
+                            <FloatingWhatsApp
+                                phoneNumber={'+964 774 260 8888'}
+                                accountName={'شركة جنة واسط الزراعية'}
+                                chatMessage={'مرحبا كيف يمكننا ان نساعدك ؟'}
+                                placeholder={'اكتب رسالة'}
+                                avatar={whatsappAvatar}
+                            />
                         </div>
                     </div>
                 </main>

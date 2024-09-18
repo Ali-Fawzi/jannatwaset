@@ -1,4 +1,4 @@
-import type {LoaderFunctionArgs, MetaFunction} from "@remix-run/node";
+import {defer, LoaderFunctionArgs, MetaFunction} from "@remix-run/node";
 import SecondaryHero from "~/components/ui/SecondaryHero";
 import OurArticles from "~/components/sections/OurArticles";
 import OurProjectsSide from "~/components/sections/OurProjectsSide";
@@ -14,11 +14,40 @@ export const meta: MetaFunction = () => {
 };
 export async function loader(args: LoaderFunctionArgs) {
     const {id} = args.params;
-    return id;
+
+    const criticalData = await loadCriticalData(id);
+    const deferredData = loadDeferredData()
+
+    return defer({...deferredData, ...criticalData});
+}
+async function loadCriticalData(id: string | undefined) {
+    const article = await fetch(`${process.env.BASE_URL}/api/Artical/${id}`).then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    }).catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
+    return {
+        article
+    };
+}
+function loadDeferredData() {
+    const projectsPromise = fetch(`${process.env.BASE_URL}/api/Projects?pageNumber=1&pageSize=3`)
+        .then(res => res.json())
+        .catch((error) => {
+            console.error(error);
+            return null;
+        })
+
+    return {
+        projects: projectsPromise
+    };
 }
 export default function Article() {
-    const {assetsUrl, projects} = useRouteLoaderData<typeof loader>('root');
-    const {article} = useLoaderData();
+    const {assetsUrl} = useRouteLoaderData<typeof loader>('root');
+    const {article, projects} = useLoaderData();
     return (
         <div className="-mb-24">
             <section>

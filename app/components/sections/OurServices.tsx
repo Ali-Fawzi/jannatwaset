@@ -3,9 +3,9 @@ import {Button} from "~/components/ui/Button";
 import {Link} from "@remix-run/react";
 import * as motion from "framer-motion/client"
 import {animationVariants} from "~/lib/utils";
+import {duty, dutyResponse} from "~/lib/type";
 
-export default function OurServices({variant = 'section'}: {variant?: 'page' | 'section'}) {
-    const services = [1,2,3,4,5,6]
+export default function OurServices({variant = 'section', duties, assetsUrl}: {variant?: 'page' | 'section'; duties: dutyResponse; assetsUrl: string}) {
     return (
         <div className='flex flex-col items-center justify-center px-4 overflow-hidden gap-16 my-8'>
             <motion.div
@@ -20,7 +20,7 @@ export default function OurServices({variant = 'section'}: {variant?: 'page' | '
                 <span>توفر شركة جنة واسط العديد من الخدمات الاستثمارية والزراعية وتربية الابقار وزيادة انتاجيتها .</span>
             </motion.div>
             <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto'>
-                {services.map((service, index) =>
+                {duties.data.map((duty: duty, index) =>
                     <motion.div
                         key={index}
                         variants={animationVariants}
@@ -32,7 +32,7 @@ export default function OurServices({variant = 'section'}: {variant?: 'page' | '
                         viewport={{once: true}}
                         className='opacity-0'
                     >
-                        <ServiceCard/>
+                        <ServiceCard duty={duty} assetsUrl={assetsUrl}/>
                     </motion.div>
                 )}
             </div>

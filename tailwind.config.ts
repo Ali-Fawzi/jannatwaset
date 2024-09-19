@@ -6,6 +6,8 @@ export default {
     extend: {
       colors: {
         background: "#F5F5F5",
+        menuColor: "#F8F6EF",
+        menuBackground: "#EAF0EC",
         wheat: "#F5EFE0",
         ash: '#F6F5F2',
         ground: '#404A3D',

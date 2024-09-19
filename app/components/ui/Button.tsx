@@ -30,6 +30,7 @@ export const Button = forwardRef(
             primaryGreen: `${baseButtonClasses} bg-green text-white hover:bg-green2 animate-smooth select-none`,
             secondary: `${baseButtonClasses} bg-white text-darkGreen hover:bg-darkGreen hover:text-white animate-smooth select-none border-2 border-darkGreen`,
             secondaryWhite: `${baseButtonClasses} bg-white/0 text-white hover:bg-white hover:text-orange-400/80 animate-smooth select-none border-2 border-white`,
+            secondaryBlack: `${baseButtonClasses} bg-white/0 text-black hover:bg-white hover:text-orange-400/80 animate-smooth select-none border-2 border-black hover:border-white`,
             secondaryGreen: `${baseButtonClasses} bg-white/0 text-green hover:bg-green hover:text-white animate-smooth select-none border-2 border-green`,
             inline: 'border-b border-primary/10 leading-none pb-1',
         };

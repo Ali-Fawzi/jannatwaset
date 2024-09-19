@@ -50,15 +50,22 @@ function loadDeferredData() {
         console.error(error);
         return null;
     })
+    const dutiesPromise = fetch(`${process.env.BASE_URL}/api/Duty`)
+        .then(res => res.json())
+        .catch((error) => {
+        console.error(error);
+        return null;
+    })
 
     return {
         sponsors: sponsorsPromise,
-        projects: projectsPromise
+        projects: projectsPromise,
+        duties: dutiesPromise,
     };
 }
 export default function Index() {
     const {articles, assetsUrl} = useRouteLoaderData<typeof loader>('root');
-    const {hero, sponsors, projects} = useLoaderData();
+    const {hero, sponsors, projects, duties} = useLoaderData();
     return (
     <>
         <section>
@@ -67,9 +74,15 @@ export default function Index() {
         <section className='bg-wheat'>
             <Greeting />
         </section>
-        <section className='mt-16'>
-            <OurServices />
-        </section>
+        {duties && (
+            <section className='mt-16'>
+                <Suspense fallback={<span className='text-lg font-semibold text-center'>تحميل...</span>}>
+                    <Await resolve={duties}>
+                        {(resolvedData) => <OurServices duties={resolvedData} assetsUrl={assetsUrl} />}
+                    </Await>
+                </Suspense>
+            </section>
+        )}
         {projects && (
             <section className='mt-16'>
                 <Suspense fallback={<span className='text-lg font-semibold text-center'>تحميل...</span>}>

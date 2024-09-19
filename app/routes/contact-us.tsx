@@ -1,4 +1,4 @@
-import type { MetaFunction } from "@remix-run/node";
+import type {ActionFunction, MetaFunction} from "@remix-run/node";
 import SecondaryHero from "~/components/ui/SecondaryHero";
 import Contact from "~/components/sections/Contact";
 import MapLocation from "~/components/MapLocation";
@@ -11,7 +11,26 @@ export const meta: MetaFunction = () => {
         { name: "description", content: "لمحة عن تاريخ الشركة و معلومات تخص الخدمات و رؤية الشركة" },
     ];
 };
+export const action: ActionFunction = async ({ request }) => {
+    await new Promise((res) => setTimeout(res, 1000));
+    const formData = await request.formData();
+    const name = formData.get("name");
+    const phoneNumber = formData.get("phoneNumber");
+    const location = formData.get("location");
+    const message = formData.get("message");
+    const email = formData.get("email");
 
+    const res = await fetch(`${import.meta.env.VITE_API_ENDPOINT}/ContactUs`, {
+        method: "post",
+        body: JSON.stringify({ email, phoneNumber, location, message, name }),
+        headers: {
+            "Content-Type": "application/json; charset=utf-8",
+        },
+    });
+
+    return res.json();
+
+};
 export default function ContactUs() {
     return (
         <>

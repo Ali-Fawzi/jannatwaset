@@ -13,6 +13,7 @@ export type projectResponse = {
     totalPages: number,
     data : project[]
 }
+
 export type article = {
     id: string,
     title: string,
@@ -25,6 +26,22 @@ export type articleResponse = {
     pageSize: number,
     totalPages: number,
     data : article[]
+}
+
+export type duty = {
+    id: string,
+    title: string,
+    subtitle: string,
+    urls: string[],
+    iconId: string,
+    phoneNumberService: string,
+    description: string,
+}
+export type dutyResponse = {
+    currentPage: number,
+    pageSize: number,
+    totalPages: number,
+    data : duty[]
 }
 
 export type sponsor = {

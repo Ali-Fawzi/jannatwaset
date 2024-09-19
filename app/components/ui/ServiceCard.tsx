@@ -1,20 +1,20 @@
-import img from "../../asstes/images/img.jpg"
 import * as motion from "framer-motion/client"
 import {animationVariants} from "~/lib/utils";
 import icon from '../../asstes/images/serviceIcon.png'
 import {Link} from "@remix-run/react";
 import {useState} from "react";
-export default function ServiceCard() {
+import {duty} from "~/lib/type";
+export default function ServiceCard({duty, assetsUrl}: {duty: duty; assetsUrl: string}) {
     const [isHovering, setHovering] = useState(false);
     return (
         <div className='w-[340px] h-[440px] rounded-2xl relative border border-green overflow-hidden'>
             <Link
-                to={'/services/1'}
+                to={`/services/${duty.id}`}
                 prefetch={'intent'}
                 onMouseEnter={() => setHovering(true)}
                 onMouseLeave={() => setHovering(false)}
             >
-                <img src={img} alt='' className='object-cover rounded-2xl absolute w-full h-full'/>
+                <img src={`${assetsUrl}/${duty.urls}`} alt={duty.title} className='object-cover rounded-2xl absolute w-full h-full'/>
                 <motion.div
                     initial={false}
                     animate={isHovering ? 'dive' : 'correctY'}
@@ -49,7 +49,7 @@ export default function ServiceCard() {
                         custom={0.25}
                         className='text-xl text-white opacity-0'
                     >
-                        خدمة تربية الابقار تشمل مجموعة من الخدمات و الانشطة المتعلقة برعاية و تنمية الابقار مثل الرعاية الصحية و التغذية و الفحص بانتظام و العلاجات الضرورية للوقاية من الامراض
+                        {duty.subtitle}
                     </motion.span>
                     <motion.span
                         initial={false}
@@ -60,7 +60,7 @@ export default function ServiceCard() {
                     >
                         اقراء المزيد
                     </motion.span>
-                    <span className='text-lg font-semibold'>تربية الابقار</span>
+                    <span className='text-lg font-semibold'>{duty.title}</span>
                 </div>
             </Link>
         </div>

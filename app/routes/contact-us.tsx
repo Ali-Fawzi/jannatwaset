@@ -20,7 +20,7 @@ export const action: ActionFunction = async ({ request }) => {
     const message = formData.get("message");
     const email = formData.get("email");
 
-    const res = await fetch(`${import.meta.env.VITE_API_ENDPOINT}/ContactUs`, {
+    const res = await fetch(`${process.env.BASE_URL}/api/ContactUs`, {
         method: "post",
         body: JSON.stringify({ email, phoneNumber, location, message, name }),
         headers: {
@@ -28,7 +28,7 @@ export const action: ActionFunction = async ({ request }) => {
         },
     });
 
-    return res.json();
+    return res;
 
 };
 export default function ContactUs() {

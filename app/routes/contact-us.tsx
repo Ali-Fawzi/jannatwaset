@@ -7,8 +7,8 @@ import {animationVariants} from "~/lib/utils";
 
 export const meta: MetaFunction = () => {
     return [
-        { title: "حول الشركة" },
-        { name: "description", content: "لمحة عن تاريخ الشركة و معلومات تخص الخدمات و رؤية الشركة" },
+        { title: "تواصل معنا" },
+        { name: "description", content: "يمكنك التواصل مع شركة جنة واسط الزراعية عن طريق البريد الالكتروني او رقم الهاتف او ارسال رسالة للشركة" },
     ];
 };
 export const action: ActionFunction = async ({ request }) => {

@@ -7,8 +7,8 @@ import OurProjectsSide from "~/components/sections/OurProjectsSide";
 
 export const meta: MetaFunction = () => {
     return [
-        { title: "حول الشركة" },
-        { name: "description", content: "لمحة عن تاريخ الشركة و معلومات تخص الخدمات و رؤية الشركة" },
+        { title: "مقالات شركة واسط الزراعية" },
+        { name: "description", content: "مقالات شركة جنة واسط الزراعية في ما يخص الزراعة و الاستثمار و تقنيياتها" },
     ];
 };
 export async function loader() {

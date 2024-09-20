@@ -28,7 +28,7 @@ export default function ProjectDetails({project, assetsUrl}: {project: project; 
                     className='w-full rounded-2xl object-cover'
                     alt={project.propertieses}
                 />
-                <div className='-mt-16 w-full rounded-2xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 items-center justify-center bg-background gap-4 max-w-5xl mx-auto'>
+                <div className='-mt-16 w-full rounded-2xl grid grid-cols-2 xl:grid-cols-4 items-center justify-center bg-background gap-4 max-w-5xl mx-auto'>
                     {information.map((info) =>
                         <div
                             key={info.name}

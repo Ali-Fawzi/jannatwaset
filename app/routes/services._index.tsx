@@ -6,7 +6,7 @@ import {useLoaderData} from "react-router";
 import {loader} from "~/routes/projects._index";
 export const meta: MetaFunction = () => {
     return [
-        { title: "حول الشركة" },
+        { title: "خدمات شركة جنة واسط الزراعية" },
         { name: "description", content: "لمحة عن تاريخ الشركة و معلومات تخص الخدمات و رؤية الشركة" },
     ];
 };

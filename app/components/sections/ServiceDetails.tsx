@@ -13,7 +13,7 @@ export default function ServiceDetails({duty, assetsUrl}: {duty: duty; assetsUrl
                 <p className='text-2xl font-semibold animate-smooth text-green'>
                     {duty.title}
                 </p>
-                <span className='text-xl font-semibold animate-smooth'>{duty.subtitle}</span>
+                <span className='animate-smooth'>{duty.subtitle}</span>
             </div>
             <div
                 dangerouslySetInnerHTML={{__html: duty.description}}

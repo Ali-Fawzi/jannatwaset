@@ -6,8 +6,8 @@ import {useRouteLoaderData} from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
     return [
-        { title: "حول الشركة" },
-        { name: "description", content: "لمحة عن تاريخ الشركة و معلومات تخص الخدمات و رؤية الشركة" },
+        { title: "مشاريع شركة جنة واسط الزراعية" },
+        { name: "description", content: "مشاريع جنة واسط الزراعية" },
     ];
 };
 export async function loader() {

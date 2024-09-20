@@ -28,6 +28,7 @@
   "devDependencies": {
     "@remix-run/dev": "^2.11.2",
     "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.15",
     "@types/nprogress": "^0.2.3",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",

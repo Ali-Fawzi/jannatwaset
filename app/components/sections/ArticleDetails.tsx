@@ -20,7 +20,7 @@ export default function ArticleDetails({article, assetsUrl}: {article: article; 
             </p>
             <div
                 dangerouslySetInnerHTML={{__html: article.description}}
-                className="mt-8"
+                className="mt-8 prose"
             />
         </div>
     )

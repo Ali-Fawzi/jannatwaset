@@ -22,7 +22,7 @@ export default function OurProjectsSide({projects, assetsUrl}: {projects: projec
                             <Link key={project.id} to={`/projects/${project.id}`}
                                   className='flex flex-row items-center justify-center gap-3 group overflow-hidden'
                             >
-                                <img src={`${assetsUrl}/${project.urlImage}`} alt='' className='w-24 h-24 flex-none'/>
+                                <img src={`${assetsUrl}/${project.urlImage}`} alt='' className='w-24 h-24 flex-none rounded-2xl'/>
                                 <div className='flex flex-col items-start justify-evenly h-24 gap-1'>
                                     <span
                                         className='group-hover:text-yellow animate-smooth max-w-48'>

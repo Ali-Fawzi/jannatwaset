@@ -41,7 +41,7 @@ export default function ProjectDetails({project, assetsUrl}: {project: project; 
                 </div>
                 <div
                     dangerouslySetInnerHTML={{__html: project.description}}
-                    className="mt-8"
+                    className="mt-8 prose"
                 />
             </div>
         </div>

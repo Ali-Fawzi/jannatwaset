@@ -17,7 +17,7 @@ export default function ServiceDetails({duty, assetsUrl}: {duty: duty; assetsUrl
             </div>
             <div
                 dangerouslySetInnerHTML={{__html: duty.description}}
-                className="mt-8"
+                className="mt-8 prose"
             />
         </div>
     )

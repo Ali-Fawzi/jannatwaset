@@ -8,6 +8,7 @@ import {Suspense} from "react";
 import SponsorsSkeleton from "~/components/ui/skeletons/SponsorsSkeleton";
 import {Await, useRouteLoaderData} from "@remix-run/react";
 import {useLoaderData} from "react-router";
+import VisionMissionMessage from "~/components/sections/VisionMissionMessage";
 
 export const meta: MetaFunction = () => {
     return [
@@ -52,8 +53,11 @@ export default function AboutUs() {
             <section>
                 <About />
             </section>
+            <section className='mt-72'>
+                <VisionMissionMessage />
+            </section>
             {statistic && (
-                <section className='my-16 mt-72'>
+                <section className='my-16'>
                     <Suspense fallback={<span className='text-lg font-semibold text-center'>تحميل...</span>}>
                         <Await resolve={statistic}>
                             {(resolvedData) => <Statistics statistic={resolvedData} />}

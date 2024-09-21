@@ -28,13 +28,21 @@ function loadDeferredData() {
             return null;
         })
 
+    const statisticPromise = fetch(`${process.env.BASE_URL}/api/Statistic`)
+        .then(res => res.json())
+        .catch((error) => {
+            console.error(error);
+            return null;
+        })
+
     return {
-        sponsors: sponsorsPromise
+        sponsors: sponsorsPromise,
+        statistic: statisticPromise,
     };
 }
 export default function AboutUs() {
     const {assetsUrl} = useRouteLoaderData<typeof loader>('root');
-    const {sponsors} = useLoaderData();
+    const {sponsors, statistic} = useLoaderData();
 
     return (
         <>
@@ -44,9 +52,15 @@ export default function AboutUs() {
             <section>
                 <About />
             </section>
-            <section className='my-16 mt-72'>
-                <Statistics />
-            </section>
+            {statistic && (
+                <section className='my-16 mt-72'>
+                    <Suspense fallback={<span className='text-lg font-semibold text-center'>تحميل...</span>}>
+                        <Await resolve={statistic}>
+                            {(resolvedData) => <Statistics statistic={resolvedData} />}
+                        </Await>
+                    </Suspense>
+                </section>
+            )}
             {sponsors && (
                 <section className='py-16 bg-background'>
                     <Suspense fallback={<SponsorsSkeleton/>}>

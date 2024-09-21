@@ -52,3 +52,8 @@ export type hero = {
     id: string,
     url: string,
 }
+export type statistic = {
+    projectsFinished: number,
+    equipmentInstalled: number,
+    envestments: number
+}

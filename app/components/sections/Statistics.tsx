@@ -2,7 +2,12 @@ import * as motion from "framer-motion/client"
 import {animationVariants} from "~/lib/utils";
 import clsx from "clsx";
 import statisticImg from '../../asstes/images/statistics.png'
-export default function Statistics() {
+import {statistic} from "~/lib/type";
+
+function decrementByOne(value: number) {
+    return value > 0 ? value - 1 : value;
+}
+export default function Statistics({statistic}: {statistic: statistic}) {
     const statisticData = [
         {
             name: 'زيارات الزبائن',
@@ -11,18 +16,18 @@ export default function Statistics() {
         },
         {
             name: 'المشاريع المنجزة',
-            value: 945,
+            value: decrementByOne(statistic.projectsFinished),
             style: 'border-gray-200 border-b xl:border-b-0 xl:border-l'
         },
         {
             name: 'المعدات المنصبة',
-            value: 896,
+            value: decrementByOne(statistic.equipmentInstalled),
             style: 'border-gray-200 border-b xl:border-b-0 md:border-l'
 
         },
         {
             name: 'الاستثمارات الزراعية',
-            value: 3652,
+            value: decrementByOne(statistic.envestments),
         },
     ]
     return (

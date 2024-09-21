@@ -44,12 +44,14 @@ function loadDeferredData() {
         console.error(error);
         return null;
     })
+
     const projectsPromise = fetch(`${process.env.BASE_URL}/api/Projects?pageNumber=1&pageSize=6`)
         .then(res => res.json())
         .catch((error) => {
         console.error(error);
         return null;
     })
+
     const dutiesPromise = fetch(`${process.env.BASE_URL}/api/Duty`)
         .then(res => res.json())
         .catch((error) => {
@@ -57,15 +59,23 @@ function loadDeferredData() {
         return null;
     })
 
+    const statisticPromise = fetch(`${process.env.BASE_URL}/api/Statistic`)
+        .then(res => res.json())
+        .catch((error) => {
+        console.error(error);
+        return null;
+    })
+
     return {
-        sponsors: sponsorsPromise,
-        projects: projectsPromise,
-        duties: dutiesPromise,
+        sponsors:  sponsorsPromise,
+        projects:  projectsPromise,
+        duties:    dutiesPromise,
+        statistic: statisticPromise,
     };
 }
 export default function Index() {
     const {articles, assetsUrl} = useRouteLoaderData<typeof loader>('root');
-    const {hero, sponsors, projects, duties} = useLoaderData();
+    const {hero, sponsors, projects, duties, statistic} = useLoaderData();
     return (
     <>
         <section>
@@ -92,9 +102,15 @@ export default function Index() {
                 </Suspense>
             </section>
         )}
-        <section className='mt-16'>
-            <Statistics />
-        </section>
+        {statistic && (
+            <section className='mt-16'>
+                <Suspense fallback={<span className='text-lg font-semibold text-center'>تحميل...</span>}>
+                    <Await resolve={statistic}>
+                        {(resolvedData) => <Statistics statistic={resolvedData} />}
+                    </Await>
+                </Suspense>
+            </section>
+        )}
         {articles && (
             <section className='mt-16 bg-background'>
                 <Suspense fallback={<span className='text-lg font-semibold text-center'>تحميل...</span>}>

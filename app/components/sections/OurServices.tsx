@@ -13,7 +13,7 @@ export default function OurServices({variant = 'section', duties, assetsUrl}: {v
                 variants={animationVariants}
                 whileInView={'visible'}
                 viewport={{ once: true }}
-                className='flex flex-col items-center justify-center gap-4 opacity-0'
+                className='flex flex-col items-center justify-center gap-4 opacity-0 text-lg'
             >
                 <span className='text-2xl font-bold'>خدماتنا</span>
                 <hr className='bg-green pb-[1px] w-8'/>

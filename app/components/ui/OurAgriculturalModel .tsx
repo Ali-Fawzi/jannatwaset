@@ -68,10 +68,10 @@ export default function OurAgriculturalModel({children}: {children: ReactElement
                     initial={false}
                     whileInView={'visible'}
                     viewport={{once: true}}
-                    className='flex flex-col items-center justify-center gap-4 w-full bg-white/50 xl:bg-background/0 opacity-0'
+                    className='flex flex-col items-center justify-center gap-4 w-full bg-white/50 xl:bg-background/0 opacity-0 text-lg'
                 >
                     <Wheat/>
-                    <span>مرحبا بكم في نموذجنا الزراعي</span>
+                    <span className='text-xl'>مرحبا بكم في نموذجنا الزراعي</span>
                     <hr className='bg-green pb-[1px] w-8'/>
                     {children}
                 </motion.div>

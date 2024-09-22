@@ -63,8 +63,8 @@ export default function Statistics({statistic}: {statistic: statistic}) {
                             key={statistic.name}
                             className={clsx('flex flex-col items-center md:items-end gap-2 justify-center py-8 px-16 w-full opacity-0', statistic.style)}
                         >
-                            <span className='text-3xl'>{statistic.value}</span>
-                            <span>{statistic.name}</span>
+                            <span className='text-4xl'>{statistic.value}</span>
+                            <span className='text-lg'>{statistic.name}</span>
                         </motion.div>
                     )}
                 </div>

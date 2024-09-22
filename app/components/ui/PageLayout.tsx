@@ -101,7 +101,7 @@ function MenuDrawer({
 }) {
     return (
         <Drawer open={isOpen} onClose={onClose} openFrom="right">
-            <nav className='flex flex-col items-start justify-center gap-4 px-6 md:px-8'>
+            <nav className='flex flex-col items-start justify-center gap-4 px-6 md:px-8 text-lg'>
                 {menu.map((menuItem) =>
                     <NavLink
                         key={menuItem.title}
@@ -146,11 +146,11 @@ function Header() {
                     <Link to={'/'} prefetch={'intent'}>
                         <div className='flex flex-row-reverse xl:flex-row items-center justify-center gap-2'>
                             <Logo />
-                            <p className={'text-green'}>شركة جنة واسط الزراعية</p>
+                            <p className='text-green text-xl'>شركة جنة واسط الزراعية</p>
                         </div>
                     </Link>
                 </div>
-                <nav className='hidden xl:flex flex-row items-center justify-between grow max-w-3xl mx-auto'>
+                <nav className='hidden text-lg xl:flex flex-row items-center justify-between grow max-w-3xl mx-auto'>
                     {menu.map((menuItem) =>
                         <NavLink
                             key={menuItem.title}
@@ -187,13 +187,13 @@ function Footer() {
                         <span className='w-full max-w-sm'>هي شركة استثمارات زراعية وتربية الابقار توفر العديد من الخدمات للزبائن .</span>
                         <form className="w-full max-w-sm mb-4">
                             <label htmlFor="newsletter"
-                                   className="mb-2 text-sm font-medium sr-only">ادخل البريد الالكتروني</label>
+                                   className="mb-2 font-medium sr-only">ادخل البريد الالكتروني</label>
                             <div className="relative">
                                 <input
                                     name='email'
                                     type="email"
                                     id="newsletter"
-                                    className="block text-black w-full p-4 ps-10 text-sm rounded-full bg-white focus:ring-0 focus:outline-none"
+                                    className="block text-black w-full p-4 ps-10 rounded-full bg-white focus:ring-0 focus:outline-none"
                                     placeholder="ادخل البريد الالكتروني"
                                     required
                                 />

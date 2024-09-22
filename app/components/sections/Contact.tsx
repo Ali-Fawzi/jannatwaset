@@ -72,7 +72,7 @@ export default function Contact() {
                     variants={animationVariants}
                     whileInView={'visible'}
                     viewport={{once: true}}
-                    className='flex flex-col items-center justify-center gap-2 opacity-0 z-10'
+                    className='flex flex-col items-center justify-center gap-2 opacity-0 z-10 text-lg'
                 >
                     <ContactIcon/>
                     <span>ابق على تواصل معنا</span>
@@ -160,7 +160,7 @@ export default function Contact() {
                 variants={animationVariants}
                 whileInView={'visible'}
                 viewport={{once: true}}
-                className='mt-16 w-full max-w-6xl mx-auto flex flex-col xl:flex-row gap-8 items-center justify-center opacity-0'
+                className='mt-16 w-full max-w-6xl mx-auto flex flex-col xl:flex-row gap-8 items-center justify-center opacity-0 text-lg'
             >
                 <div
                     className='border border-green rounded-lg py-12 flex flex-col items-center justify-center gap-2 w-full max-w-xs'>
@@ -185,7 +185,7 @@ export default function Contact() {
                     <div className='p-4 rounded-full bg-background'>
                         <Location/>
                     </div>
-                    <span className='font-semibold'>زورنا للموقع</span>
+                    <span className='font-semibold'>زورنا  للموقع</span>
                     <span>العراق , واسط</span>
                     <span>شارع الحي</span>
                 </div>

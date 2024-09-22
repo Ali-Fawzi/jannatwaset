@@ -5,13 +5,13 @@ import statisticImg from '../../asstes/images/statistics.png'
 import {statistic} from "~/lib/type";
 
 function decrementByOne(value: number) {
-    return value > 0 ? value - 1 : value;
+    return value > 0 ? `+${value - 1}` : value;
 }
 export default function Statistics({statistic}: {statistic: statistic}) {
     const statisticData = [
         {
             name: 'زيارات الزبائن',
-            value: 565,
+            value: decrementByOne(565),
             style: 'border-gray-200 border-b xl:border-b-0 md:border-l'
         },
         {
@@ -63,7 +63,7 @@ export default function Statistics({statistic}: {statistic: statistic}) {
                             key={statistic.name}
                             className={clsx('flex flex-col items-center md:items-end gap-2 justify-center py-8 px-16 w-full opacity-0', statistic.style)}
                         >
-                            <span className='text-3xl'>+{statistic.value}</span>
+                            <span className='text-3xl'>{statistic.value}</span>
                             <span>{statistic.name}</span>
                         </motion.div>
                     )}

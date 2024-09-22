@@ -53,7 +53,7 @@ export default function AboutUs() {
             <section>
                 <About />
             </section>
-            <section className='mt-72'>
+            <section className='mt-72 xl:mt-16'>
                 <VisionMissionMessage />
             </section>
             {statistic && (

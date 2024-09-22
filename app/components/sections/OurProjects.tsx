@@ -24,7 +24,7 @@ export default function OurProjects(
             <Pagination
                 itemsPerPage={projects.pageSize}
                 currentPage={projects.currentPage}
-                totalItems={projects.totalPages}
+                totalPages={projects.totalPages}
                 itemsStyle='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto'
             >
                 {projects.data.map((project: project, index) =>

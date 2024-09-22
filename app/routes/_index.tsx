@@ -45,7 +45,7 @@ function loadDeferredData() {
         return null;
     })
 
-    const projectsPromise = fetch(`${process.env.BASE_URL}/api/Projects?pageNumber=1&pageSize=6`)
+    const projectsPromise = fetch(`${process.env.BASE_URL}/api/Projects?pageNumber=1&pageSize=7`)
         .then(res => res.json())
         .catch((error) => {
         console.error(error);

@@ -1,4 +1,4 @@
-import {defer, MetaFunction} from "@remix-run/node";
+import {defer, LoaderFunctionArgs, MetaFunction} from "@remix-run/node";
 import SecondaryHero from "~/components/ui/SecondaryHero";
 import OurProjects from "~/components/sections/OurProjects";
 import {useLoaderData} from "react-router";
@@ -10,13 +10,15 @@ export const meta: MetaFunction = () => {
         { name: "description", content: "مشاريع جنة واسط الزراعية" },
     ];
 };
-export async function loader() {
-    const criticalData = await loadCriticalData();
+export async function loader({ request }) {
+    const url = new URL(request.url);
+    const pageNumber = Number(url.searchParams.get('pageNumber')) || 1;
+    const criticalData = await loadCriticalData(pageNumber);
 
     return defer({...criticalData});
 }
-async function loadCriticalData() {
-    const projects = await fetch(`${process.env.BASE_URL}/api/Projects?pageNumber=1&pageSize=6`).then(response => {
+async function loadCriticalData(pageNumber: string | number) {
+    const projects = await fetch(`${process.env.BASE_URL}/api/Projects?pageNumber=${pageNumber}&pageSize=6`).then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

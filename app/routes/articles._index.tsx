@@ -11,14 +11,16 @@ export const meta: MetaFunction = () => {
         { name: "description", content: "مقالات شركة جنة واسط الزراعية في ما يخص الزراعة و الاستثمار و تقنيياتها" },
     ];
 };
-export async function loader() {
-    const criticalData = await loadCriticalData();
+export async function loader({request}) {
+    const url = new URL(request.url);
+    const pageNumber = Number(url.searchParams.get('pageNumber')) || 1;
+    const criticalData = await loadCriticalData(pageNumber);
     const deferredData = loadDeferredData()
 
     return defer({...deferredData, ...criticalData});
 }
-async function loadCriticalData() {
-    const articles = await fetch(`${process.env.BASE_URL}/api/Artical?pageNumber=1&pageSize=6`).then(response => {
+async function loadCriticalData(pageNumber: number | string) {
+    const articles = await fetch(`${process.env.BASE_URL}/api/Artical?pageNumber=${pageNumber}&pageSize=6`).then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

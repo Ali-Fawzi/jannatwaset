@@ -2,9 +2,8 @@ import Vector from '../../asstes/icons/Next.svg'
 import { useNavigate } from '@remix-run/react';
 import clsx from "clsx";
 
-const Pagination = ({ children, itemsPerPage, itemsStyle, currentPage, totalItems }) => {
+const Pagination = ({ children, itemsPerPage, itemsStyle, currentPage, totalPages }) => {
     const navigate = useNavigate();
-    const totalPages = Math.ceil(totalItems / itemsPerPage);
 
     const scrollToTop = () => {
         window.scrollTo({
@@ -12,9 +11,8 @@ const Pagination = ({ children, itemsPerPage, itemsStyle, currentPage, totalItem
             behavior: 'instant',
         });
     };
-    const handlePageClick = (page) => {
-        const skip = (page - 1) * itemsPerPage;
-        navigate(`?skip=${skip}&take=${itemsPerPage}`);
+    const handlePageClick = (page: number) => {
+        navigate(`?pageNumber=${page}`);
         scrollToTop();
     };
 

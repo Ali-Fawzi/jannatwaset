@@ -26,7 +26,7 @@ export default function OurArticles(
             <Pagination
                 itemsPerPage={articles.pageSize}
                 currentPage={articles.currentPage}
-                totalItems={articles.totalPages}
+                totalPages={articles.totalPages}
                 itemsStyle='grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto'
             >
                 {articles.data.map((article: article, index) =>

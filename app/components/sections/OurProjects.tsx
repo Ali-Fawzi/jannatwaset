@@ -22,9 +22,9 @@ export default function OurProjects(
                 <span>ابرز المشاريع المنفذة في العديد من الخدمات الاستثمارية والزراعية وتربية الابقار وزيادة انتاجيتها .</span>
             </motion.div>
             <Pagination
-                itemsPerPage={9}
-                currentPage={1}
-                totalItems={9}
+                itemsPerPage={projects.pageSize}
+                currentPage={projects.currentPage}
+                totalItems={projects.totalPages}
                 itemsStyle='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto'
             >
                 {projects.data.map((project: project, index) =>

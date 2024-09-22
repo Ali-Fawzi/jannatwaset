@@ -47,7 +47,7 @@ export default function Articles() {
     const {articles, projects} = useLoaderData();
 
     return (
-        <d>
+        <>
             <section>
                 <SecondaryHero title={'المقالات'} />
             </section>
@@ -57,6 +57,6 @@ export default function Articles() {
                     <OurProjectsSide projects={projects} assetsUrl={assetsUrl} />
                 </div>
             </section>
-        </d>
+        </>
     );
 }

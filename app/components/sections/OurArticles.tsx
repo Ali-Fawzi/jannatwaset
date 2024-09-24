@@ -13,16 +13,9 @@ export default function OurArticles(
 ) {
     return (
         <div className='flex flex-col items-start justify-center gap-8'>
-            <motion.span
-                initial={false}
-                variants={animationVariants}
-                whileInView={'visible'}
-                custom={0}
-                viewport={{once:true}}
-                className='text-2xl font-semibold opacity-0'
-            >
+            <span className='text-2xl font-semibold'>
                 اخر المقالات
-            </motion.span>
+            </span>
             <Pagination
                 itemsPerPage={articles.pageSize}
                 currentPage={articles.currentPage}

@@ -10,17 +10,11 @@ export default function OurProjects(
 ) {
     return (
         <div className='flex flex-col items-center justify-center px-4 overflow-hidden gap-16 my-8'>
-            <motion.div
-                initial={false}
-                variants={animationVariants}
-                whileInView={'visible'}
-                viewport={{ once: true }}
-                className='flex flex-col items-center justify-center gap-4 opacity-0 text-lg'
-            >
+            <div className='flex flex-col items-center justify-center gap-4 text-lg'>
                 <span className='text-2xl font-bold'>مشارعينا</span>
                 <hr className='bg-green pb-[1px] w-8'/>
                 <span>ابرز المشاريع المنفذة في العديد من الخدمات الاستثمارية والزراعية وتربية الابقار وزيادة انتاجيتها .</span>
-            </motion.div>
+            </div>
             <Pagination
                 itemsPerPage={projects.pageSize}
                 currentPage={projects.currentPage}

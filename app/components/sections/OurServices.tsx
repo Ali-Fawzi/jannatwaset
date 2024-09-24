@@ -8,17 +8,11 @@ import {duty, dutyResponse} from "~/lib/type";
 export default function OurServices({variant = 'section', duties, assetsUrl}: {variant?: 'page' | 'section'; duties: dutyResponse; assetsUrl: string}) {
     return (
         <div className='flex flex-col items-center justify-center px-4 overflow-hidden gap-16 my-8'>
-            <motion.div
-                initial={false}
-                variants={animationVariants}
-                whileInView={'visible'}
-                viewport={{ once: true }}
-                className='flex flex-col items-center justify-center gap-4 opacity-0 text-lg'
-            >
+            <div className='flex flex-col items-center justify-center gap-4 text-lg'>
                 <span className='text-2xl font-bold'>خدماتنا</span>
                 <hr className='bg-green pb-[1px] w-8'/>
                 <span>توفر شركة جنة واسط العديد من الخدمات الاستثمارية والزراعية وتربية الابقار وزيادة انتاجيتها .</span>
-            </motion.div>
+            </div>
             <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto'>
                 {duties.data.map((duty: duty, index) =>
                     <motion.div

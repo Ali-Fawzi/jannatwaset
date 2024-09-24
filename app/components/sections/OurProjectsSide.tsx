@@ -1,17 +1,10 @@
-import * as motion from "framer-motion/client";
-import {animationVariants} from "~/lib/utils";
 import {Suspense} from "react";
 import {Await, Link} from "@remix-run/react";
 import {project, projectResponse} from "~/lib/type";
 
 export default function OurProjectsSide({projects, assetsUrl}: {projects: projectResponse, assetsUrl: string}) {
     return (
-        <motion.div
-            initial={false}
-            variants={animationVariants}
-            whileInView={'visible'}
-            viewport={{once: true}}
-            className='flex flex-col items-start justify-center gap-4 opacity-0'>
+        <div className='flex flex-col items-start justify-center gap-4'>
             <span className='text-2xl font-semibold mb-4'>اخر المشاريع</span>
             {projects && (
                 <Suspense fallback={
@@ -37,6 +30,6 @@ export default function OurProjectsSide({projects, assetsUrl}: {projects: projec
                     </Await>
                 </Suspense>
             )}
-        </motion.div>
+        </div>
     );
 }

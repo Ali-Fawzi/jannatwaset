@@ -8,9 +8,9 @@ export default function ArticleDetails({article, assetsUrl}: {article: article; 
             <img
                 src={`${assetsUrl}/${article.image}`}
                 alt={article.title}
-                className='rounded-t-lg object-cover w-full'
+                className='rounded-t-lg object-cover h-[338px] w-full'
             />
-            <div className='mr-auto -mt-12 max-w-72 bg-yellow border border-white p-4 rounded-lg'>
+            <div className='mr-auto -mt-8 ml-8 max-w-72 bg-yellow border border-white p-4 rounded-lg'>
                 <p className='text-center'>
                     {formatDate(article.createdAt)}
                 </p>

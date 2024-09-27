@@ -17,8 +17,6 @@ import house from "../../asstes/images/house.png"
 import {loader} from "~/root";
 import {article} from "~/lib/type";
 import {formatDate} from "~/lib/utils";
-import {FloatingWhatsApp} from "react-floating-whatsapp";
-import whatsappAvatar from '../../asstes/images/top-10-qualities-of-a-call-center-agent.jpg'
 type MenuItem = {
     title: string;
     link: string;
@@ -78,13 +76,6 @@ export function PageLayout({children}:{children: ReactNode}) {
                 <Header />
                 <main role="main" id="mainContent" className="grow bg-white">
                     {children}
-                    <FloatingWhatsApp
-                        phoneNumber={'+964 774 260 8888'}
-                        accountName={'شركة جنة واسط الزراعية'}
-                        chatMessage={'مرحبا كيف يمكننا ان نساعدك ؟'}
-                        placeholder={'اكتب رسالة'}
-                        avatar={whatsappAvatar}
-                    />
                 </main>
             </div>
             <Footer/>

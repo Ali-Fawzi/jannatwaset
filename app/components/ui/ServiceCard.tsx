@@ -1,6 +1,5 @@
 import * as motion from "framer-motion/client"
 import {animationVariants} from "~/lib/utils";
-import icon from '../../asstes/images/serviceIcon.png'
 import {Link} from "@remix-run/react";
 import {useState} from "react";
 import {duty} from "~/lib/type";
@@ -28,7 +27,7 @@ export default function ServiceCard({duty, assetsUrl}: {duty: duty; assetsUrl: s
                     variants={animationVariants}
                     custom={0.25}
                     className='w-24 h-24 object-contain absolute left-28 bottom-16'
-                    src={icon}
+                    src={`${assetsUrl}/${duty.iconId}`}
                     alt=''
                 />
                 <motion.div
